@@ -1,7 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from address.models import Address
-from emergency_contact.models import EmergencyContact
 
 class User(AbstractUser):
     pass
