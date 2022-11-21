@@ -41,9 +41,10 @@ INSTALLED_APPS = [
     'authentication.apps.AuthenticationConfig',
     'corsheaders',
     'cars.apps.CarsConfig',  # This app is for example use only
-    'user',
     'emergency_contact',
-    'address'
+    'address',
+    'announcements',
+    'payroll'
 ]
 
 MIDDLEWARE = [
