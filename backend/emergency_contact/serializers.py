@@ -1,7 +1,16 @@
 from rest_framework import serializers
 from .models import EmergencyContact
+from authentication.models import User
 
-class EmergencyContactSerializers(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id','username', 'first_name', 'last_name']
+
+class EmergencyContactSerializer(serializers.ModelSerializer):
+    user = UserSerializer(many=False, read_only=True)
     class Meta:
         model = EmergencyContact
-        fields = ['first_name', 'last_name','phone_number']
+        fields = ['id', 'user', 'first_name', 'last_name', 'phone_number', 'user_id']
+        depth = 1
+    user_id = serializers.IntegerField(write_only=True)
