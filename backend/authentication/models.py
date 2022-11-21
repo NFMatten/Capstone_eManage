@@ -13,10 +13,8 @@ class User(AbstractUser):
     # Example (note import of models above that is commented out)
     # this will add a column to the user table
     phone_number = models.CharField(max_length=12)
-    # address = models.ForeignKey(Address, on_delete=models.CASCADE)
     dob = models.DateField()
     employee_role = models.CharField(max_length=255)
     salary = models.DecimalField(max_digits=4, decimal_places=2)
     hire_date = models.DateField()
-    # emergency_contact = models.ForeignKey(EmergencyContact, on_delete=models.CASCADE)
     is_manager = models.BooleanField('manager status', default=False)
