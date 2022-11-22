@@ -1,8 +1,14 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AuthContext from "../../context/AuthContext";
 import useCustomForm from "../../hooks/useCustomForm";
-import { Link } from "react-router-dom";
 import "./LoginPage.css";
+import Stack from "@mui/material/Stack";
+import Container from "@mui/material/Container";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import Checkbox from "@mui/material/Checkbox";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
 
 const LoginPage = () => {
   const { loginUser, isServerError } = useContext(AuthContext);
@@ -18,34 +24,53 @@ const LoginPage = () => {
     }
   }, [isServerError]);
 
+  const [showPassword, setShowPassword] = useState(false);
+
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
-    <div className="container">
+    <Container maxWidth="xs">
       <form className="form" onSubmit={handleSubmit}>
-        <label>
-          Username:{" "}
-          <input
+        <Stack spacing={2}>
+          <h2>Sign in to eManage</h2>
+          <TextField
+            label="Username"
+            placeholder="Enter Username..."
             type="text"
             name="username"
             value={formData.username}
             onChange={handleInputChange}
           />
-        </label>
-        <label>
-          Password:{" "}
-          <input
-            type="text"
+
+          <TextField
+            label="Password"
+            placeholder="Enter Password..."
+            type={showPassword ? "test" : "password"}
             name="password"
             value={formData.password}
             onChange={handleInputChange}
           />
-        </label>
-        {isServerError ? (
-          <p className="error">Login failed, incorrect credentials!</p>
-        ) : null}
-        <Link to="/register">Click to register!</Link>
-        <button>Login!</button>
+
+          <FormGroup>
+            <FormControlLabel
+              control={<Checkbox onChange={toggleShowPassword} />}
+              label="Show Password"
+            />
+          </FormGroup>
+
+          {isServerError ? (
+            <p className="error">Login failed, incorrect credentials!</p>
+          ) : null}
+
+          <Button href="/register">Click to register!</Button>
+          <Button variant="contained" type="submit">
+            Login!
+          </Button>
+        </Stack>
       </form>
-    </div>
+    </Container>
   );
 };
 
