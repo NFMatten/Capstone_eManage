@@ -14,6 +14,7 @@ def payroll_list(request):
         serializer = PayrollSerializer(payroll, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
+        request.data["total_before_taxes"] = (request.data["salary"] * request.data["hours_worked"]) + request.data["tips_received"]
         serializer = PayrollSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
