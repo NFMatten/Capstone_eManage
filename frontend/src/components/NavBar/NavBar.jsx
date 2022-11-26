@@ -16,10 +16,20 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
+          <img src="logo.png" alt="eManage logo" title="eManage"></img>
+        </li>
+        <li className="button-center">
           {user ? (
             <button onClick={logoutUser}>Logout</button>
           ) : (
             <button onClick={() => navigate("/login")}>Login</button>
+          )}
+          {user ? (
+            <button onclick={logoutUser}>Logout</button>
+          ) : (
+            <button className="register" onClick={() => navigate("/register")}>
+              Register
+            </button>
           )}
         </li>
       </ul>

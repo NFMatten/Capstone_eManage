@@ -13,7 +13,8 @@ li {
   box-shadow: 4px 2px 5px gray;
   color: white;
   margin-bottom: 2rem;
-  padding: 1.5rem 2rem;
+  padding-right: 10px;
+  /* padding: 1.5rem 2rem; */
 }
 
 .navBar button {
@@ -32,4 +33,15 @@ li {
 .brand {
   cursor: pointer;
   font-size: 2rem;
+  justify-content: center;
+  padding-left: 10px;
+  padding-top: 20px;
+}
+
+.button-center {
+  padding-top: 27px;
+}
+
+.register {
+  margin-left: 5px;
 }
