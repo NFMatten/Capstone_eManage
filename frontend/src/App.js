@@ -12,20 +12,14 @@ import Navbar from "./components/NavBar/NavBar";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
+import HomeLoggedOut from "./components/HomePage/HomeLoggedOut";
 
 function App() {
   return (
     <div>
       <Navbar />
       <Routes>
-        <Route
-          path="/"
-          element={
-            <PrivateRoute>
-              <HomePage />
-            </PrivateRoute>
-          }
-        />
+        <Route path="/" element={<HomePage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
