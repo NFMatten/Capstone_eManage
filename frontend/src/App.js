@@ -10,10 +10,6 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 
-// Util Imports
-import PrivateRoute from "./utils/PrivateRoute";
-import HomeLoggedOut from "./components/HomePage/HomeLoggedOut";
-
 function App() {
   return (
     <div>
