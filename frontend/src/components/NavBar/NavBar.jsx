@@ -9,8 +9,8 @@ const Navbar = () => {
   const navigate = useNavigate();
   return (
     <div className="navBar">
-      <ul>
-        <li className="brand">
+      <ul className="ul">
+        <li className="brand li">
           <Link
             to="/"
             title="Home"
@@ -19,21 +19,22 @@ const Navbar = () => {
             <b>eManage</b>
           </Link>
         </li>
-        <li>
+        <li className="li">
           <img src="logo.png" alt="eManage logo" title="eManage"></img>
         </li>
-        <li className="button-center">
+        <li className="button-center li">
           {user ? (
             <button onClick={logoutUser}>Logout</button>
           ) : (
-            <button onClick={() => navigate("/login")}>Login</button>
-          )}
-          {user ? (
-            <button onclick={logoutUser}>Logout</button>
-          ) : (
-            <button className="register" onClick={() => navigate("/register")}>
-              Register
-            </button>
+            <>
+              <button onClick={() => navigate("/login")}>Login</button>
+              <button
+                className="register"
+                onClick={() => navigate("/register")}
+              >
+                Register
+              </button>
+            </>
           )}
         </li>
       </ul>
