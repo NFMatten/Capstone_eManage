@@ -1,4 +1,5 @@
 import { Grid, Paper, Typography } from "@mui/material";
+import "./Features.css";
 
 const Features = (props) => {
   const { feature, description, image } = props;
@@ -16,7 +17,7 @@ const Features = (props) => {
         </Typography>
         <Typography variant="subtitle2">{`${description}`}</Typography>
         <br />
-        <img src={image}></img>
+        <img src={image} className="img-size"></img>
       </Paper>
     </Grid>
   );
