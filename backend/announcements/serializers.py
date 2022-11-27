@@ -11,6 +11,6 @@ class AnnouncementSerializer(serializers.ModelSerializer):
     user = UserSerializer(many=False, read_only=True)
     class Meta:
         model = Announcement
-        fields = ['id', 'user', 'announcement']
+        fields = ['id', 'user', 'announcement', "user_id"]
         depth = 1
-    
+    user_id = serializers.IntegerField(write_only=True)
