@@ -1,10 +1,10 @@
 import { Grid, Paper, Typography } from "@mui/material";
 
 const Features = (props) => {
-  const { feature, description } = props;
+  const { feature, description, image } = props;
   return (
     <Grid item xs={6} md={5}>
-      <Paper elevation={3} sx={{ justifyContent: "center", padding: 5 }}>
+      <Paper elevation={4} sx={{ justifyContent: "center", padding: 5 }}>
         <Typography
           variant="h5"
           sx={{
@@ -15,6 +15,8 @@ const Features = (props) => {
           {`${feature}`}
         </Typography>
         <Typography variant="subtitle2">{`${description}`}</Typography>
+        <br />
+        <img src={image}></img>
       </Paper>
     </Grid>
   );
