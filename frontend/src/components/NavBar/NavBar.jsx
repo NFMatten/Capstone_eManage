@@ -24,12 +24,17 @@ const Navbar = () => {
         </li>
         <li className="button-center li">
           {user ? (
-            <button onClick={logoutUser}>Logout</button>
+            <>
+              <button onClick={() => navigate("/profile")}>Profile</button>
+              <button className="btn-space" onClick={logoutUser}>
+                Logout
+              </button>
+            </>
           ) : (
             <>
               <button onClick={() => navigate("/login")}>Login</button>
               <button
-                className="register"
+                className="btn-space"
                 onClick={() => navigate("/register")}
               >
                 Register
