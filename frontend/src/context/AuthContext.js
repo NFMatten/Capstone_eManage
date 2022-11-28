@@ -15,6 +15,7 @@ function setUserObject(user) {
     username: user.username,
     id: user.user_id,
     first_name: user.first_name,
+    is_manager: user.is_manager,
   };
 }
 
