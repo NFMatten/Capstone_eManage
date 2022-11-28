@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, List, Paper } from "@mui/material";
-import AnnouncementSingle from "../AnnouncementSingle/AnnoucementSingle";
+import AnnouncementSingle from "../AnnouncementSingle/AnnouncementSingle";
 
 const AnnouncementList = (props) => {
   const { announcements, getAnnouncements } = props;
