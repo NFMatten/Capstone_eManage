@@ -1,15 +1,14 @@
-import { Typography, Paper } from "@mui/material";
+import { Typography, Container } from "@mui/material";
 
 const AnnouncementSingle = (props) => {
-  const { parentAnnoucements } = props;
-
+  const { announcement, user } = props;
   return (
-    <div>
-      <Paper elevation={4}>
-        <Typography>{parentAnnoucements.user} </Typography>
-        <Typography>{parentAnnoucements.announcement} </Typography>
-      </Paper>
-    </div>
+    <Container sx={{ my: 2 }}>
+      <Typography variant="h6">{user.username} </Typography>
+      <Typography variant="subtitle2" sx={{ marginLeft: "20px" }}>
+        {announcement}{" "}
+      </Typography>
+    </Container>
   );
 };
 
