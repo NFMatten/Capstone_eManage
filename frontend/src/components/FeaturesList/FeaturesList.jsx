@@ -4,7 +4,10 @@ import { Grid, Paper, Typography } from "@mui/material";
 const FeaturesList = (props) => {
   return (
     <Grid item xs={6} md={5} sx={{ justifyContent: "center" }}>
-      <Paper elevation={4} sx={{ justifyContent: "center", padding: 5 }}>
+      <Paper
+        elevation={4}
+        sx={{ justifyContent: "center", padding: 5, height: "319px" }}
+      >
         <Typography
           variant="h5"
           sx={{
