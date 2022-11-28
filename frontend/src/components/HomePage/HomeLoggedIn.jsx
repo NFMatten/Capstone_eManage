@@ -6,7 +6,7 @@ import useAuth from "../../hooks/useAuth";
 import AnnouncementForm from "../AnnouncementForm/AnnouncementForm";
 
 const HomeLoggedIn = (props) => {
-  const [annoucements, setAnnouncements] = useState([]);
+  const [announcements, setAnnouncements] = useState([]);
   const [user, token] = useAuth();
 
   useEffect(() => {
@@ -19,16 +19,16 @@ const HomeLoggedIn = (props) => {
         headers: { Authorization: `Bearer ${token}` },
       });
       setAnnouncements(response.data);
-      console.log(user);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const addAnnouncement = async () => {
+  const addAnnouncement = async (announcementObj) => {
     try {
       const response = await axios.post(
         "http://127.0.0.1:8000/announcements/",
+        announcementObj,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -49,10 +49,10 @@ const HomeLoggedIn = (props) => {
         </Paper>
         <Container>
           <AnnouncementForm addAnnouncement={addAnnouncement} />
-          {/* <AnnouncementList
-            announcements={annoucements}
+          <AnnouncementList
+            announcements={announcements}
             getAnnouncements={getAnnouncements}
-          /> */}
+          />
         </Container>
       </Container>
     </div>
