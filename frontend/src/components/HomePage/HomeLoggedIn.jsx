@@ -48,7 +48,11 @@ const HomeLoggedIn = (props) => {
           View Calendar - Payroll - Update Personal Information
         </Paper>
         <Container>
-          <AnnouncementForm addAnnouncement={addAnnouncement} />
+          {user.is_manager ? (
+            <AnnouncementForm addAnnouncement={addAnnouncement} />
+          ) : (
+            <></>
+          )}
           <AnnouncementList
             announcements={announcements}
             getAnnouncements={getAnnouncements}
