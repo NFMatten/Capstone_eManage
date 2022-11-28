@@ -6,14 +6,10 @@ const AnnouncementList = (props) => {
   const { announcements, getAnnouncements } = props;
   return (
     <Container>
-      <Paper elevation={4}>
+      <Paper elevation={4} sx={{ my: 5 }}>
         <List>
           {announcements.map((announcement) => (
-            <AnnouncementSingle
-              {...announcement}
-              key={announcement.id}
-              getAnnouncements={getAnnouncements}
-            />
+            <AnnouncementSingle {...announcement} key={announcement.id} />
           ))}
         </List>
       </Paper>
