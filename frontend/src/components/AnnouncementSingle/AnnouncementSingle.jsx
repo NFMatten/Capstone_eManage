@@ -6,7 +6,7 @@ const AnnouncementSingle = (props) => {
     <Container sx={{ my: 2 }}>
       <Typography variant="h6">{user.username} </Typography>
       <Typography variant="subtitle2" sx={{ marginLeft: "20px" }}>
-        {announcement}{" "}
+        {announcement}
       </Typography>
     </Container>
   );
