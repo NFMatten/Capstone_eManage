@@ -30,7 +30,12 @@ const AnnouncementForm = (props) => {
           fullWidth
           margin="normal"
         />
-        <Button variant="contained" type="submit" onClick={handleSubmit}>
+        <Button
+          variant="contained"
+          type="submit"
+          onClick={handleSubmit}
+          sx={{ backgroundColor: "#ffc163" }}
+        >
           Submit
         </Button>
       </Paper>
