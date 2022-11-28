@@ -1,9 +1,13 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
-import Features from "../Features/Features";
+import Feature from "../Feature/Feature";
 import FeaturesList from "../FeaturesList/FeaturesList";
 import HomePageSummary from "../HomePageSummary/HomePageSummary";
+import payroll from "../../images/payroll.png";
+import data from "../../images/data.png";
+import announcement from "../../images/announcement.png";
+import scheduling from "../../images/scheduling.png";
 
 const HomeLoggedOut = (props) => {
   return (
@@ -18,35 +22,27 @@ const HomeLoggedOut = (props) => {
         >
           <FeaturesList />
           <HomePageSummary />
-          <Features
+          <Feature
             feature={"Payroll"}
             description={"Calculate your employee Payroll, before taxes!"}
-            image={
-              "https://images.unsplash.com/photo-1623857975222-7f25b9575ac8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDJ8fGFjY291bnRpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-            }
+            image={payroll}
           />
-          <Features
+          <Feature
             feature={"Scheduling"}
             description={"Schedule your employees with our Calendar!"}
-            image={
-              "https://images.unsplash.com/photo-1616530834117-9167fb0d8ebc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjN8fGNhbGVuZGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-            }
+            image={scheduling}
           />
-          <Features
+          <Feature
             feature={"Announcements"}
             description={
-              "Post new announcments for your employees to stay up to date!"
+              "Keep your employees informed with posting announcments!"
             }
-            image={
-              "https://plus.unsplash.com/premium_photo-1661963783275-dff88a0296f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8bWVzc2FnZSUyMGJvYXJkfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-            }
+            image={announcement}
           />
-          <Features
+          <Feature
             feature={"Employee Data"}
             description={"Update your employee information with ease!"}
-            image={
-              "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZGF0YWJhc2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-            }
+            image={data}
           />
         </Grid>
       </Container>
