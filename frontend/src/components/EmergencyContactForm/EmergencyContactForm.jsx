@@ -9,15 +9,6 @@ const EmergencyContactForm = (props) => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [user, token] = useAuth();
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   addEmergencyContact({
-  //     first_name: firstName,
-  //     last_name: lastName,
-  //     phone_number: phoneNumber,
-  //     user_id: user.id,
-  //   });
-  // };
   const handleSubmit = (e) => {
     e.preventDefault();
     callBack({
