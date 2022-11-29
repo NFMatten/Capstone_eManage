@@ -1,25 +1,35 @@
 import React, { useState } from "react";
-import { Paper, TextField, Button, Typography } from "@mui/material";
+import { Paper, TextField, Button, Typography, Container } from "@mui/material";
 import useAuth from "../../hooks/useAuth";
 
 const EmergencyContactForm = (props) => {
-  const { addEmergencyContact } = props;
+  const { addEmergencyContact, callBack } = props;
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [user, token] = useAuth();
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   addEmergencyContact({
+  //     first_name: firstName,
+  //     last_name: lastName,
+  //     phone_number: phoneNumber,
+  //     user_id: user.id,
+  //   });
+  // };
   const handleSubmit = (e) => {
     e.preventDefault();
-    addEmergencyContact({
+    callBack({
       first_name: firstName,
       last_name: lastName,
       phone_number: phoneNumber,
       user_id: user.id,
     });
   };
+
   return (
-    <div>
+    <Container>
       <Paper elevation={4}>
         <Typography>Emergency Contact Information</Typography>
         <TextField
@@ -52,7 +62,7 @@ const EmergencyContactForm = (props) => {
           Submit
         </Button>
       </Paper>
-    </div>
+    </Container>
   );
 };
 
