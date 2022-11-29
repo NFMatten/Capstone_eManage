@@ -21,10 +21,11 @@ def list_of_addresses(request):
 
 @api_view(['GET','PUT','DELETE'])
 @permission_classes([IsAuthenticated])
-def address_detail(request, pk):
-    address = get_object_or_404(Address, pk=pk)
+def address_detail(request, user_id):
+    address = get_object_or_404(Address, user__id=user_id)
     if request.method == 'GET':
-        serializer = AddressSerializer(address)
+        userAddress = Address.objects.filter(user__id=user_id)
+        serializer = AddressSerializer(userAddress, many=True)
         return Response(serializer.data)
     elif request.method == 'PUT':
         serializer = AddressSerializer(address, data=request.data)
