@@ -3,7 +3,7 @@ import { Paper, TextField, Button, Typography, Container } from "@mui/material";
 import useAuth from "../../hooks/useAuth";
 
 const EmergencyContactForm = (props) => {
-  const { addEmergencyContact, callBack } = props;
+  const { callBack } = props;
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
