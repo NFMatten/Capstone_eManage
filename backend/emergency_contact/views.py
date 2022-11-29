@@ -19,18 +19,19 @@ def emergency_contact_list(request):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-@api_view(['GET','PUT','DELETE'])
+@api_view(['GET', 'PUT', 'DELETE'])
 @permission_classes([IsAuthenticated])
-def emergency_contact_detail(request, pk):
-    emergency_contacts = get_object_or_404(EmergencyContact, pk=pk)
-    if request.method == 'GET':
-        serializer = EmergencyContactSerializer(emergency_contacts)
+def emergency_contact_detail(request, user_id):
+    emergency_contact = get_object_or_404(EmergencyContact, user__id=user_id)
+    if request.method=='GET':
+        emergencyContact = EmergencyContact.objects.filter(user__id= user_id)
+        serializer = EmergencyContactSerializer(emergencyContact, many=True)
         return Response(serializer.data)
     elif request.method == 'PUT':
-        serializer = EmergencyContactSerializer(emergency_contacts, data=request.data)
+        serializer = EmergencyContactSerializer(emergency_contact, data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
     elif request.method == 'DELETE':
-        emergency_contacts.delete()
+        emergency_contact.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
