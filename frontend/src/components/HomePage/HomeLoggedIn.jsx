@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Paper } from "@mui/material";
+import { Container, Paper, Link } from "@mui/material";
 import AnnouncementList from "../AnnouncementList/AnnouncementList";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
@@ -45,7 +45,8 @@ const HomeLoggedIn = (props) => {
       <Container>
         <Paper>Welcome {user.first_name}</Paper>
         <Paper elevation={4}>
-          View Calendar - Payroll - Update Personal Information
+          <Link href="/calendar">View Calendar</Link> - Payroll - Update
+          Personal Information
         </Paper>
         <Container>
           {user.is_manager ? (
