@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import EmergencyContactForm from "../../components/EmergencyContactForm/EmergencyContactForm";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
-import DisplayEmergencyContact from "../../components/DisplayEmergencyContact/DisplayEmergencyContact";
 import ProfileMenu from "../../components/ProfileMenu/ProfileMenu";
 
 const ProfilePage = (props) => {
