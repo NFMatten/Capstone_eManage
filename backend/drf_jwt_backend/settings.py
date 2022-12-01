@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'emergency_contact',
     'address',
     'announcements',
-    'payroll'
+    'payroll',
+    'calendar_app'
 ]
 
 MIDDLEWARE = [
