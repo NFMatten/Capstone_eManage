@@ -22,7 +22,7 @@ const CalendarPage = (props) => {
     }
   };
 
-  const addEvent = async (newEvent) => {
+  const addNewEvent = async (newEvent) => {
     try {
       const response = await axios.post(
         "http://127.0.0.1:8000/calendar/",
@@ -32,6 +32,20 @@ const CalendarPage = (props) => {
         }
       );
       if (response.status === 201) getEvents();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteEvent = async (eventToDelete) => {
+    try {
+      const response = await axios.delete(
+        `http://127.0.0.1:8000/calendar/${eventToDelete}/`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      if (response.status === 204) getEvents();
     } catch (error) {
       console.log(error);
     }
@@ -52,7 +66,8 @@ const CalendarPage = (props) => {
         <Calendar
           allEvents={allEvents}
           getEvents={getEvents}
-          addEvent={addEvent}
+          addNewEvent={addNewEvent}
+          deleteEvent={deleteEvent}
         />
       ) : (
         <></>
