@@ -5,17 +5,15 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import { INITIAL_EVENTS, createEventId } from "../../utils/event-utils";
 import { Paper } from "@mui/material";
+import "./Calendar.css";
 
 const Calendar = (props) => {
-  const { allEvents, getEvents, addEvents, user, token } = props;
+  const { allEvents, getEvent, addNewEvent, deleteEvent, user, token } = props;
   const [currentEvents, setCurrentEvents] = useState([]);
 
-  console.log("all events", allEvents);
-
   const handleDateSelect = (selectInfo) => {
-    let title = prompt("Please enter a new title for your event");
+    let title = prompt("Please enter an Employee Name");
     let calendarApi = selectInfo.view.calendar;
-
     calendarApi.unselect(); // clear date selection
 
     if (title) {
@@ -26,6 +24,12 @@ const Calendar = (props) => {
         end: selectInfo.endStr,
         allDay: selectInfo.allDay,
       });
+      const newEvent = {
+        employee_name: title,
+        start: selectInfo.startStr,
+        end: selectInfo.endStr,
+      };
+      addNewEvent(newEvent);
     }
   };
 
@@ -36,6 +40,7 @@ const Calendar = (props) => {
       )
     ) {
       clickInfo.event.remove();
+      deleteEvent(clickInfo.event.id);
     }
   };
 
@@ -44,10 +49,10 @@ const Calendar = (props) => {
   };
 
   return (
-    <div className="demo-app">
+    <div className="calendar">
       {renderSidebar()}
-      <div className="demo-app-main">
-        <Paper elevation={4} sx={{ my: 5, mx: 5 }}>
+      <div className="calendar-main">
+        <Paper elevation={4}>
           <FullCalendar
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
             headerToolbar={{
@@ -55,7 +60,7 @@ const Calendar = (props) => {
               center: "title",
               right: "dayGridMonth,timeGridWeek,timeGridDay",
             }}
-            initialView="dayGridMonth"
+            initialView="timeGridDay"
             editable={true}
             selectable={true}
             selectMirror={true}
@@ -80,16 +85,18 @@ const Calendar = (props) => {
 
   function renderSidebar() {
     return (
-      <div className="demo-app-sidebar">
-        <div className="demo-app-sidebar-section">
+      <div className="calendar-sidebar">
+        <div className="calendar-sidebar-section">
           <h2>Instructions</h2>
-          <ul>
-            <li>Select dates and you will be prompted to create a new event</li>
-            <li>Drag, drop, and resize events</li>
-            <li>Click an event to delete it</li>
+          <ul className="sidebar-ul">
+            <li className="sidebar-li">
+              Select dates and you will be prompted to create a new event
+            </li>
+            <li className="sidebar-li">Drag, drop, and resize events</li>
+            <li className="sidebar-li">Click an event to delete it</li>
           </ul>
         </div>
-        <div className="demo-app-sidebar-section">
+        <div className="calendar-sidebar-section">
           <h2>All Events ({currentEvents.length})</h2>
           <ul>{currentEvents.map(renderSidebarEvent)}</ul>
         </div>
