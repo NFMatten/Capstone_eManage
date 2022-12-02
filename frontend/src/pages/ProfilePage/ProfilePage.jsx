@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import ProfileMenu from "../../components/ProfileMenu/ProfileMenu";
+import MenuItems from "../../components/MenuItems/MenuItems";
+import Container from "@mui/material/Container";
 
 const ProfilePage = (props) => {
   const [user, token] = useAuth();
@@ -102,14 +104,17 @@ const ProfilePage = (props) => {
   };
   return (
     <div>
-      <ProfileMenu
-        emergencyContact={emergencyContact}
-        addEmergencyContact={addEmergencyContact}
-        updateEmergencyContact={updateEmergencyContact}
-        userAddress={userAddress}
-        addUserAddress={addUserAddress}
-        updateUserAddress={updateUserAddress}
-      />
+      <Container>
+        <MenuItems />
+        <ProfileMenu
+          emergencyContact={emergencyContact}
+          addEmergencyContact={addEmergencyContact}
+          updateEmergencyContact={updateEmergencyContact}
+          userAddress={userAddress}
+          addUserAddress={addUserAddress}
+          updateUserAddress={updateUserAddress}
+        />
+      </Container>
     </div>
   );
 };
