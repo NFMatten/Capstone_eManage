@@ -6,6 +6,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 import { INITIAL_EVENTS, createEventId } from "../../utils/event-utils";
 import { Paper } from "@mui/material";
 import "./Calendar.css";
+import MenuItems from "../MenuItems/MenuItems";
 
 const Calendar = (props) => {
   const { allEvents, getEvent, addNewEvent, deleteEvent, user, token } = props;
@@ -52,6 +53,7 @@ const Calendar = (props) => {
     <div className="calendar">
       {renderSidebar()}
       <div className="calendar-main">
+        <MenuItems />
         <Paper elevation={4}>
           <FullCalendar
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
