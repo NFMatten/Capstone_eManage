@@ -11,6 +11,8 @@ import CalendarPage from "./pages/CalendarPage/CalendarPage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
+import PayrollPage from "./pages/PayrollPage/PayrollPage";
+import EmployeesPage from "./pages/EmployeesPage/EmployeesPage";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/calendar" element={<CalendarPage />} />
+        <Route path="/payroll" element={<PayrollPage />} />
+        <Route path="/employees" element={<EmployeesPage />} />
       </Routes>
     </div>
   );
