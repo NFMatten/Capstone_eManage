@@ -35,13 +35,15 @@ const Calendar = (props) => {
   };
 
   const handleEventClick = (clickInfo) => {
-    if (
-      window.confirm(
-        `Are you sure you want to delete the event '${clickInfo.event.title}'`
-      )
-    ) {
-      clickInfo.event.remove();
-      deleteEvent(clickInfo.event.id);
+    if (user.is_manager) {
+      if (
+        window.confirm(
+          `Are you sure you want to delete the event '${clickInfo.event.title}'`
+        )
+      ) {
+        clickInfo.event.remove();
+        deleteEvent(clickInfo.event.id);
+      }
     }
   };
 
@@ -63,8 +65,8 @@ const Calendar = (props) => {
               right: "dayGridMonth,timeGridWeek,timeGridDay",
             }}
             initialView="timeGridDay"
-            editable={true}
-            selectable={true}
+            editable={user.is_manager}
+            selectable={user.is_manager}
             selectMirror={true}
             dayMaxEvents={true}
             weekends={true}
