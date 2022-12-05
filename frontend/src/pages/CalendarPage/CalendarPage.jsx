@@ -68,6 +68,8 @@ const CalendarPage = (props) => {
           getEvents={getEvents}
           addNewEvent={addNewEvent}
           deleteEvent={deleteEvent}
+          user={user}
+          token={token}
         />
       ) : (
         <></>
