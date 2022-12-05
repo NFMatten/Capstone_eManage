@@ -17,7 +17,6 @@ const MenuItems = (props) => {
         <Link underline="hover" href="/profile">
           Update Personal Information
         </Link>
-        {/* {" | "} */}
         {user.is_manager ? (
           <Link underline="hover" href="/employees">
             | Employees
