@@ -7,19 +7,17 @@ const MenuItems = (props) => {
     <div>
       <Paper elevation={4} sx={{ marginBottom: "50px", alignItems: "center" }}>
         <Link underline="hover" href="/calendar">
-          View Calendar
+          {"View Calendar |"}
         </Link>
-        {" | "}
         <Link underline="hover" href="/payroll">
-          Payroll
+          {" Payroll |"}
         </Link>
-        {" | "}
         <Link underline="hover" href="/profile">
-          Update Personal Information
+          {" Update Personal Information "}
         </Link>
         {user.is_manager ? (
           <Link underline="hover" href="/employees">
-            | Employees
+            {"| Employees"}
           </Link>
         ) : (
           <></>
