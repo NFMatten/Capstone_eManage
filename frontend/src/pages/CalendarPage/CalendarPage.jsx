@@ -64,7 +64,7 @@ const CalendarPage = (props) => {
     <div>
       {allEvents.length > 0 ? (
         <Calendar
-          allEvents={allEvents}
+          allEvents={allEvents.slice(1)}
           getEvents={getEvents}
           addNewEvent={addNewEvent}
           deleteEvent={deleteEvent}
