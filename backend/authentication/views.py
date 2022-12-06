@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from .serializers import MyTokenObtainPairSerializer, RegistrationSerializer
+from .serializers import MyTokenObtainPairSerializer, RegistrationSerializer, UserSerializer
 from rest_framework import generics
 from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.views import TokenObtainPairView
@@ -27,24 +27,24 @@ class RegisterView(generics.CreateAPIView):
 def getUsers(request):
     if request.method == 'GET':
         users = User.objects.all()
-        serializer = RegistrationSerializer(users, many=True)
+        serializer = UserSerializer(users, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
-        serializer = RegistrationSerializer(data=request.data)
+        serializer = UserSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 @api_view(['GET','PUT','DELETE'])
-@permission_classes(IsAuthenticated)
+@permission_classes([IsAuthenticated])
 def specificUser(request, user_id):
-    requestedUser = get_object_or_404(User, user__id=user_id)
+    requestedUser = get_object_or_404(User, id=user_id)
     if request.method == 'GET':
-        requestedUser = User.objects.filter(user__id=user_id)
-        serializer = RegistrationSerializer(requestedUser, many=True)
+        requestedUser = User.objects.filter(id=user_id)
+        serializer = UserSerializer(requestedUser, many=True)
         return Response(serializer.data)
     elif request.method == 'PUT':
-        serializer = RegistrationSerializer(requestedUser, data=request.data)
+        serializer = UserSerializer(requestedUser, data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
