@@ -41,6 +41,35 @@ const EmployeesPage = (props) => {
     }
   };
 
+  const editAddress = async (addressId, updatedAddress) => {
+    try {
+      const response = await axios.put(
+        `http://localhose:8000/address/${addressId}/`,
+        updatedAddress,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      fetchAddresses();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteAddress = async (addressId) => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:8000/address/${addressId}/`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      fetchAddresses();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       <MenuItems />
