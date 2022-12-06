@@ -4,6 +4,7 @@ import DisplayEmployeeAddresses from "../../components/DisplayEmployeeAddresses/
 import DisplayEmployees from "../../components/DisplayEmployees/DisplayEmployees";
 import useAuth from "../../hooks/useAuth";
 import Grid from "@mui/material/Grid";
+import MenuItems from "../../components/MenuItems/MenuItems";
 
 const EmployeesPage = (props) => {
   const [allUsers, setAllUsers] = useState([]);
@@ -42,6 +43,7 @@ const EmployeesPage = (props) => {
 
   return (
     <div>
+      <MenuItems />
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <DisplayEmployees allUsers={allUsers} />
