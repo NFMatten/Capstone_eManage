@@ -75,7 +75,7 @@ const EmployeesPage = (props) => {
       <MenuItems />
       <Grid container spacing={2}>
         <Grid item xs={12}>
-          <DisplayEmployees allUsers={allUsers} />
+          <DisplayEmployees allUsers={allUsers} fetchUsers={fetchUsers} />
         </Grid>
         <Grid item xs={12}>
           <DisplayEmployeeAddresses addresses={addresses} />
