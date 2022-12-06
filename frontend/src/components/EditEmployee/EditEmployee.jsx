@@ -14,13 +14,16 @@ const EditEmployee = (props) => {
   const [salary, setSalary] = useState(employee.salary);
   const [hireDate, setHireDate] = useState(employee.hire_date);
   const [employeeRole, setEmployeeRole] = useState(employee.employee_role);
-  const [userName, setUserName] = useState(employee.username);
   const [user, token] = useAuth();
 
   useEffect(() => {
     setFirstName(employee.first_name);
     setLastName(employee.last_name);
     setEmail(employee.email);
+    setPhoneNumber(employee.phone_number);
+    setSalary(employee.salary);
+    setHireDate(employee.hire_date);
+    setEmployeeRole(employee.employee_role);
   }, [employee]);
 
   const handleSubmit = async (e) => {
@@ -33,7 +36,6 @@ const EditEmployee = (props) => {
       salary: salary,
       hire_date: hireDate,
       employee_role: employeeRole,
-      username: userName,
     };
     console.log("update user", updatedUser);
     await axios
