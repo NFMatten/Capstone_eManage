@@ -1,4 +1,4 @@
-import React, { useState, useSyncExternalStore } from "react";
+import React, { useState } from "react";
 import { Paper, TextField, Button, Typography, Container } from "@mui/material";
 import useAuth from "../../hooks/useAuth";
 
