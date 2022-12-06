@@ -14,7 +14,7 @@ import {
 import EditEmployee from "../EditEmployee/EditEmployee";
 
 const DisplayEmployees = (props) => {
-  const { allUsers } = props;
+  const { allUsers, fetchUsers } = props;
   const [user, token] = useAuth();
   const [show, setShow] = useState(false);
   const [toggle, setToggle] = useState();
@@ -41,7 +41,7 @@ const DisplayEmployees = (props) => {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      // Recall get method
+      fetchUsers();
       setToggle(!toggle);
     } catch (error) {
       console.log(error);
