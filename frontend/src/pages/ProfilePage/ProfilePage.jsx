@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import ProfileMenu from "../../components/ProfileMenu/ProfileMenu";
-import MenuItems from "../../components/MenuItems/MenuItems";
 import Container from "@mui/material/Container";
 
 const ProfilePage = (props) => {
@@ -105,7 +104,6 @@ const ProfilePage = (props) => {
   return (
     <div>
       <Container>
-        <MenuItems />
         <ProfileMenu
           emergencyContact={emergencyContact}
           addEmergencyContact={addEmergencyContact}
