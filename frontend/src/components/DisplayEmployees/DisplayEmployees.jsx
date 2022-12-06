@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import useAuth from "../../hooks/useAuth";
+import axios from "axios";
 import {
   Table,
   TableCell,
@@ -7,10 +9,45 @@ import {
   TableBody,
   TableRow,
   Paper,
+  Button,
 } from "@mui/material";
+import EditEmployee from "../EditEmployee/EditEmployee";
 
 const DisplayEmployees = (props) => {
   const { allUsers } = props;
+  const [user, token] = useAuth();
+  const [show, setShow] = useState(false);
+  const [toggle, setToggle] = useState();
+  const [employee, setEmployee] = useState([]);
+
+  const showModal = () => {
+    setShow(true);
+  };
+
+  const hideModal = () => {
+    setShow(false);
+  };
+
+  const handleEdit = (employee) => {
+    setEmployee(employee);
+    showModal();
+  };
+
+  const deleteUser = async (userId) => {
+    try {
+      await axios.delete(
+        `http://localhost:8000/api/auth/employees/${userId}/`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      // Recall get method
+      setToggle(!toggle);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       {allUsers.length > 0 ? (
@@ -27,25 +64,46 @@ const DisplayEmployees = (props) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {allUsers.slice(1).map((user) => {
+              {allUsers.slice(1).map((employee) => {
                 return (
                   <TableRow
-                    key={user.id}
+                    key={employee.id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
                     <TableCell>
-                      {user.first_name} {user.last_name}
+                      {employee.first_name} {employee.last_name}
                     </TableCell>
-                    <TableCell>{user.email}</TableCell>
-                    <TableCell>{user.phone_number}</TableCell>
-                    <TableCell>{user.salary}</TableCell>
-                    <TableCell>{user.hire_date}</TableCell>
-                    <TableCell>{user.employee_role}</TableCell>
+                    <TableCell>{employee.email}</TableCell>
+                    <TableCell>{employee.phone_number}</TableCell>
+                    <TableCell>{employee.salary}</TableCell>
+                    <TableCell>{employee.hire_date}</TableCell>
+                    <TableCell>{employee.employee_role}</TableCell>
+                    <TableCell size="small">
+                      <Button
+                        variant="contained"
+                        onClick={() => handleEdit(employee)}
+                        type="button"
+                      >
+                        Edit
+                      </Button>
+                    </TableCell>
+                    <TableCell size="small">
+                      <Button
+                        variant="contained"
+                        onClick={() => deleteUser(employee.id)}
+                        type="submit"
+                      >
+                        Delete
+                      </Button>
+                    </TableCell>
                   </TableRow>
                 );
               })}
             </TableBody>
           </Table>
+          <EditEmployee show={show} handleClose={hideModal} employee={employee}>
+            <p>Edit Employee</p>
+          </EditEmployee>
         </TableContainer>
       ) : (
         <></>
