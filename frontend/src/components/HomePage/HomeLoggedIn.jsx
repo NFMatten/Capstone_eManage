@@ -4,7 +4,6 @@ import AnnouncementList from "../AnnouncementList/AnnouncementList";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import AnnouncementForm from "../AnnouncementForm/AnnouncementForm";
-import MenuItems from "../MenuItems/MenuItems";
 
 const HomeLoggedIn = (props) => {
   const [announcements, setAnnouncements] = useState([]);
@@ -45,7 +44,6 @@ const HomeLoggedIn = (props) => {
       <p>Logged in</p>
       <Container>
         <Paper>Welcome {user.first_name}</Paper>
-        <MenuItems />
         <Container>
           {user.is_manager ? (
             <AnnouncementForm addAnnouncement={addAnnouncement} />
