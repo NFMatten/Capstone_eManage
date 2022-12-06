@@ -8,7 +8,7 @@ import Container from "@mui/material/Container";
 const ProfilePage = (props) => {
   const [user, token] = useAuth();
   const [emergencyContact, setEmergencyContact] = useState("");
-  const [userAddress, setUserAddress] = useState("");
+  const [userAddress, setUserAddress] = useState([]);
 
   useEffect(() => {
     getEmergencyContact();
@@ -69,7 +69,7 @@ const ProfilePage = (props) => {
       );
       setUserAddress(response.data);
     } catch (error) {
-      console.log(error);
+      console.log("address not found", error);
     }
   };
 
@@ -82,7 +82,7 @@ const ProfilePage = (props) => {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      if (response.status === 201) getEmergencyContact();
+      if (response.status === 201) getUserAddress();
     } catch (error) {
       console.log(error);
     }
