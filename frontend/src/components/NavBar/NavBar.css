@@ -32,13 +32,12 @@
 .brand {
   cursor: pointer;
   font-size: 2rem;
-  justify-content: center;
   padding-left: 10px;
-  padding-top: 20px;
+  padding-top: 30px;
 }
 
 .button-center {
-  padding-top: 27px;
+  padding-top: 37px;
 }
 
 .btn-space {
