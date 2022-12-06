@@ -46,9 +46,7 @@ const DisplayEmployeeAddresses = (props) => {
           </Table>
         </TableContainer>
       ) : (
-        <div>
-          <p>test</p>
-        </div>
+        <></>
       )}
     </div>
   );
