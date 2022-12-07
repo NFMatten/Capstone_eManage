@@ -19,9 +19,27 @@ def emergency_contact_list(request):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
+# Function for accessing table through PK
+@api_view(['GET','PUT','DELETE'])
+@permission_classes([IsAuthenticated])
+def employees_ec_details(request, pk):
+    emergency_contact = get_object_or_404(EmergencyContact, pk=pk)
+    if request.method == 'GET':
+        serializer = EmergencyContactSerializer(emergency_contact)
+        return Response(serializer.data)
+    elif request.method == 'PUT':
+        serializer = EmergencyContactSerializer(emergency_contact, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
+    elif request.method == 'DELETE':
+        emergency_contact.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+# Function for accessing table through User Id
 @api_view(['GET', 'PUT', 'DELETE'])
 @permission_classes([IsAuthenticated])
-def emergency_contact_detail(request, user_id):
+def user_ec_detail(request, user_id):
     emergency_contact = get_object_or_404(EmergencyContact, user__id=user_id)
     if request.method=='GET':
         emergencyContact = EmergencyContact.objects.filter(user__id= user_id)
