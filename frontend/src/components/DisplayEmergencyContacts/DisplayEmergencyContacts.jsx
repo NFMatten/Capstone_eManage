@@ -11,7 +11,9 @@ import {
   Paper,
   Button,
 } from "@mui/material";
-import EditAddress from "../EditAddress/EditAddress";
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 import EditEmergencyContact from "../EditEmergencyContact/EditEmergencyContact";
 
 const DisplayEmergencyContacts = (props) => {
@@ -77,25 +79,27 @@ const DisplayEmergencyContacts = (props) => {
                       {emergencyContact.first_name} {emergencyContact.last_name}
                     </TableCell>
                     <TableCell>{emergencyContact.phone_number}</TableCell>
-                    <TableCell>
-                      <Button
+                    <TableCell padding="none">
+                      <IconButton
                         variant="contained"
                         onClick={() => handleEdit(emergencyContact)}
                         type="button"
+                        size="small"
                       >
-                        Edit
-                      </Button>
+                        <EditIcon style={{ color: "orange" }} />
+                      </IconButton>
                     </TableCell>
-                    <TableCell>
-                      <Button
+                    <TableCell padding="none">
+                      <IconButton
                         variant="contained"
                         onClick={() =>
                           deleteEmergencyContact(emergencyContact.id)
                         }
                         type="submit"
+                        size="small"
                       >
-                        Delete
-                      </Button>
+                        <DeleteIcon style={{ color: "orange" }} />
+                      </IconButton>
                     </TableCell>
                   </TableRow>
                 );

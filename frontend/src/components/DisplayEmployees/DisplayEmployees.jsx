@@ -9,12 +9,14 @@ import {
   TableBody,
   TableRow,
   Paper,
-  Button,
 } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 import EditEmployee from "../EditEmployee/EditEmployee";
 
 const DisplayEmployees = (props) => {
-  const { allUsers, fetchUsers } = props;
+  const { allUsers, fetchUsers, payroll } = props;
   const [user, token] = useAuth();
   const [show, setShow] = useState(false);
   const [toggle, setToggle] = useState();
@@ -78,29 +80,37 @@ const DisplayEmployees = (props) => {
                     <TableCell>
                       {employee.first_name} {employee.last_name}
                     </TableCell>
-                    <TableCell>{employee.email}</TableCell>
-                    <TableCell>{employee.phone_number}</TableCell>
-                    <TableCell>{employee.salary}</TableCell>
-                    <TableCell>{employee.hire_date}</TableCell>
-                    <TableCell>{employee.employee_role}</TableCell>
-                    <TableCell size="small">
-                      <Button
-                        variant="contained"
-                        onClick={() => handleEdit(employee)}
-                        type="button"
-                      >
-                        Edit
-                      </Button>
-                    </TableCell>
-                    <TableCell size="small">
-                      <Button
-                        variant="contained"
-                        onClick={() => deleteUser(employee.id)}
-                        type="submit"
-                      >
-                        Delete
-                      </Button>
-                    </TableCell>
+                    {payroll === false ? (
+                      <>
+                        <TableCell>{employee.email}</TableCell>
+                        <TableCell>{employee.phone_number}</TableCell>
+                        <TableCell>{employee.salary}</TableCell>
+                        <TableCell>{employee.hire_date}</TableCell>
+                        <TableCell>{employee.employee_role}</TableCell>
+                        <TableCell padding="none">
+                          <IconButton
+                            variant="contained"
+                            onClick={() => handleEdit(employee)}
+                            type="button"
+                            size="small"
+                          >
+                            <EditIcon style={{ color: "orange" }} />
+                          </IconButton>
+                        </TableCell>
+                        <TableCell padding="none">
+                          <IconButton
+                            variant="contained"
+                            onClick={() => deleteUser(employee.id)}
+                            type="submit"
+                            size="small"
+                          >
+                            <DeleteIcon style={{ color: "orange" }} />
+                          </IconButton>
+                        </TableCell>
+                      </>
+                    ) : (
+                      <p>test</p>
+                    )}
                   </TableRow>
                 );
               })}

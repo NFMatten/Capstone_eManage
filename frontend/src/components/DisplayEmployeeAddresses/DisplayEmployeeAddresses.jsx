@@ -11,6 +11,9 @@ import {
   Paper,
   Button,
 } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 import EditAddress from "../EditAddress/EditAddress";
 
 const DisplayEmployeeAddresses = (props) => {
@@ -73,23 +76,25 @@ const DisplayEmployeeAddresses = (props) => {
                     <TableCell>{address.city}</TableCell>
                     <TableCell>{address.state}</TableCell>
                     <TableCell>{address.zip}</TableCell>
-                    <TableCell>
-                      <Button
+                    <TableCell padding="none">
+                      <IconButton
                         variant="contained"
                         onClick={() => handleEdit(address)}
                         type="button"
+                        size="small"
                       >
-                        Edit
-                      </Button>
+                        <EditIcon style={{ color: "orange" }} />
+                      </IconButton>
                     </TableCell>
-                    <TableCell>
-                      <Button
+                    <TableCell padding="none">
+                      <IconButton
                         variant="contained"
                         onClick={() => deleteAddress(address.id)}
                         type="submit"
+                        size="small"
                       >
-                        Delete
-                      </Button>
+                        <DeleteIcon style={{ color: "orange" }} />
+                      </IconButton>
                     </TableCell>
                   </TableRow>
                 );
