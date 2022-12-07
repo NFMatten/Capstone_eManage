@@ -95,7 +95,7 @@ const EditEmployee = (props) => {
           <input
             name="employee_role"
             onChange={(e) => setEmployeeRole(e.target.value)}
-            defaultValue={employee.hire_date}
+            defaultValue={employee.employee_role}
           />
           <button type="submit">Update Employee</button>
         </form>
