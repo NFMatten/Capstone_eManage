@@ -82,20 +82,28 @@ const EmployeesPage = (props) => {
     <div>
       <Container
         sx={{
-          backgroundColor: "#ffd596",
+          backgroundColor: "#ffddaa",
           paddingBottom: "4em",
           boxShadow: 4,
         }}
       >
         <Grid container spacing={3} sx={{ justifyContent: "center" }}>
           <Grid item xs={9}>
-            <Typography variant="h6">Employees</Typography>
-            <SearchBar filterEmployees={filterEmployees} />
+            <Grid container>
+              <Grid item xs={9.5} justifyContent="flex-start">
+                <Typography variant="h6">Employees</Typography>
+              </Grid>
+              <Grid item xs={2} justifyContent="flex-end">
+                <SearchBar filterEmployees={filterEmployees} />
+              </Grid>
+            </Grid>
+
             <DisplayEmployees
               allUsers={allUsers}
               fetchUsers={fetchUsers}
               toggle={toggle}
               filterEmployees={filterEmployees}
+              payroll={false}
             />
           </Grid>
           <Grid item xs={9}>
