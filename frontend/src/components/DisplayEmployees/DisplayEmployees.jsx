@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import {
@@ -27,6 +27,10 @@ const DisplayEmployees = (props) => {
   const hideModal = () => {
     setShow(false);
   };
+
+  useEffect(() => {
+    fetchUsers();
+  }, [toggle, props.toggle]);
 
   const handleEdit = (employee) => {
     setEmployee(employee);
@@ -65,7 +69,7 @@ const DisplayEmployees = (props) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {allUsers.slice(1).map((employee) => {
+              {allUsers.map((employee) => {
                 return (
                   <TableRow
                     key={employee.id}
