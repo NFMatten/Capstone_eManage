@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import useAuth from "../../hooks/useAuth";
+import axios from "axios";
 import {
   Table,
   TableCell,
@@ -7,10 +9,42 @@ import {
   TableBody,
   TableRow,
   Paper,
+  Button,
 } from "@mui/material";
+import EditAddress from "../EditAddress/EditAddress";
 
 const DisplayEmployeeAddresses = (props) => {
-  const { addresses } = props;
+  const { addresses, fetchAddresses } = props;
+  const [user, token] = useAuth();
+  const [show, setShow] = useState(false);
+  const [toggle, setToggle] = useState();
+  const [address, setAddress] = useState([]);
+
+  const showModal = () => {
+    setShow(true);
+  };
+
+  const hideModal = () => {
+    setShow(false);
+  };
+
+  const handleEdit = (address) => {
+    setAddress(address);
+    showModal();
+  };
+
+  const deleteAddress = async (addressId) => {
+    try {
+      await axios.delete(`http://localhost:8000/address/${addressId}/`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      fetchAddresses();
+      setToggle(!toggle);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       {addresses.length > 0 ? (
@@ -26,24 +60,45 @@ const DisplayEmployeeAddresses = (props) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {addresses.map((a) => {
+              {addresses.map((address) => {
                 return (
                   <TableRow
-                    key={a.id}
+                    key={address.id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
                     <TableCell>
-                      {a.user.first_name} {a.user.last_name}
+                      {address.user.first_name} {address.user.last_name}
                     </TableCell>
-                    <TableCell>{a.street_address}</TableCell>
-                    <TableCell>{a.city}</TableCell>
-                    <TableCell>{a.state}</TableCell>
-                    <TableCell>{a.zip}</TableCell>
+                    <TableCell>{address.street_address}</TableCell>
+                    <TableCell>{address.city}</TableCell>
+                    <TableCell>{address.state}</TableCell>
+                    <TableCell>{address.zip}</TableCell>
+                    <TableCell>
+                      <Button
+                        variant="contained"
+                        onClick={() => handleEdit(address)}
+                        type="button"
+                      >
+                        Edit
+                      </Button>
+                    </TableCell>
+                    <TableCell>
+                      <Button
+                        variant="contained"
+                        onClick={() => deleteAddress(address.id)}
+                        type="submit"
+                      >
+                        Delete
+                      </Button>
+                    </TableCell>
                   </TableRow>
                 );
               })}
             </TableBody>
           </Table>
+          <EditAddress show={show} handleClose={hideModal} address={address}>
+            <p>Edit Address</p>
+          </EditAddress>
         </TableContainer>
       ) : (
         <></>
