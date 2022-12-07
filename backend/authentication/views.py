@@ -26,7 +26,7 @@ class RegisterView(generics.CreateAPIView):
 @permission_classes([IsAuthenticated])
 def getUsers(request):
     if request.method == 'GET':
-        users = User.objects.all()
+        users = User.objects.all().exclude(is_superuser=True)
         serializer = UserSerializer(users, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
