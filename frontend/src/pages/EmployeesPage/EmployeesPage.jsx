@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import DisplayEmployeeAddresses from "../../components/DisplayEmployeeAddresses/DisplayEmployeeAddresses";
 import DisplayEmployees from "../../components/DisplayEmployees/DisplayEmployees";
 import useAuth from "../../hooks/useAuth";
-import { Grid, Container } from "@mui/material/";
+import { Grid, Container, Typography } from "@mui/material/";
 import DisplayEmergencyContacts from "../../components/DisplayEmergencyContacts/DisplayEmergencyContacts";
 import SearchBar from "../../components/SearchBar/SearchBar";
 
@@ -79,35 +79,42 @@ const EmployeesPage = (props) => {
   };
 
   return (
-    <Container maxWidth="xl">
-      <p>ToDo: Emergency Contact Table, Filter tables</p>
-      Styling: Sidebar? Button to display Addresses and Emergency Contacts with
-      default table not shown
-      <br />
-      <Grid container spacing={2} sx={{ justifyContent: "center" }}>
-        <Grid item xs={9}>
-          <SearchBar filterEmployees={filterEmployees} />
-          <DisplayEmployees
-            allUsers={allUsers}
-            fetchUsers={fetchUsers}
-            toggle={toggle}
-            filterEmployees={filterEmployees}
-          />
+    <div>
+      <Container
+        sx={{
+          backgroundColor: "#ffd596",
+          paddingBottom: "4em",
+          boxShadow: 4,
+        }}
+      >
+        <Grid container spacing={3} sx={{ justifyContent: "center" }}>
+          <Grid item xs={9}>
+            <Typography variant="h6">Employees</Typography>
+            <SearchBar filterEmployees={filterEmployees} />
+            <DisplayEmployees
+              allUsers={allUsers}
+              fetchUsers={fetchUsers}
+              toggle={toggle}
+              filterEmployees={filterEmployees}
+            />
+          </Grid>
+          <Grid item xs={9}>
+            <Typography variant="h6">Employee Addresses</Typography>
+            <DisplayEmployeeAddresses
+              addresses={addresses}
+              fetchAddresses={fetchAddresses}
+            />
+          </Grid>
+          <Grid item xs={9}>
+            <Typography variant="h6">Employee Emergency Contacts</Typography>
+            <DisplayEmergencyContacts
+              emergContacts={emergContacts}
+              fetchEmergencyContacts={fetchEmergencyContacts}
+            />
+          </Grid>
         </Grid>
-        <Grid item xs={9}>
-          <DisplayEmployeeAddresses
-            addresses={addresses}
-            fetchAddresses={fetchAddresses}
-          />
-        </Grid>
-        <Grid item xs={9}>
-          <DisplayEmergencyContacts
-            emergContacts={emergContacts}
-            fetchEmergencyContacts={fetchEmergencyContacts}
-          />
-        </Grid>
-      </Grid>
-    </Container>
+      </Container>
+    </div>
   );
 };
 
