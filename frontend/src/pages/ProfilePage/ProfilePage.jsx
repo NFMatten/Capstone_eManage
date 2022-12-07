@@ -17,7 +17,7 @@ const ProfilePage = (props) => {
   const getEmergencyContact = async () => {
     try {
       const response = await axios.get(
-        `http://127.0.0.1:8000/emergencyContact/${user.id}/`,
+        `http://127.0.0.1:8000/emergencyContact/user/${user.id}/`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -46,7 +46,7 @@ const ProfilePage = (props) => {
   const updateEmergencyContact = async (updatedInfo) => {
     try {
       const response = await axios.put(
-        `http://127.0.0.1:8000/emergencyContact/${user.id}/`,
+        `http://127.0.0.1:8000/emergencyContact/user/${user.id}/`,
         updatedInfo,
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -90,7 +90,7 @@ const ProfilePage = (props) => {
   const updateUserAddress = async (updatedAddress) => {
     try {
       const response = await axios.put(
-        `http://127.0.0.1:8000/address/${user.id}/`,
+        `http://127.0.0.1:8000/address/user/${user.id}/`,
         updatedAddress,
         {
           headers: { Authorization: `Bearer ${token}` },
