@@ -43,6 +43,7 @@ const DisplayEmployees = (props) => {
       );
       fetchUsers();
       setToggle(!toggle);
+      window.location.reload();
     } catch (error) {
       console.log(error);
     }
