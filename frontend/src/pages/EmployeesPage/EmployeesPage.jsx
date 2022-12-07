@@ -5,11 +5,13 @@ import DisplayEmployees from "../../components/DisplayEmployees/DisplayEmployees
 import useAuth from "../../hooks/useAuth";
 import { Grid, Container } from "@mui/material/";
 import DisplayEmergencyContacts from "../../components/DisplayEmergencyContacts/DisplayEmergencyContacts";
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 const EmployeesPage = (props) => {
   const [allUsers, setAllUsers] = useState([]);
   const [addresses, setAddresses] = useState([]);
   const [emergContacts, setEmergContacts] = useState([]);
+  const [toggle, setToggle] = useState();
   const [user, token] = useAuth();
 
   useEffect(() => {
@@ -57,6 +59,25 @@ const EmployeesPage = (props) => {
     }
   };
 
+  const filterEmployees = (e) => {
+    let filterValue = e.target.value;
+    if (filterValue === "") {
+      fetchUsers();
+    } else {
+      let filteredUsers = allUsers.filter(
+        (u) =>
+          u.first_name.toLowerCase().includes(filterValue.toLowerCase()) ||
+          u.last_name.toLowerCase().includes(filterValue.toLowerCase()) ||
+          u.email.toLowerCase().includes(filterValue.toLowerCase()) ||
+          u.phone_number.includes(filterValue) ||
+          u.salary.includes(filterValue) ||
+          u.hire_date.includes(filterValue) ||
+          u.employee_role.toLowerCase().includes(filterValue.toLowerCase())
+      );
+      setAllUsers(filteredUsers);
+    }
+  };
+
   return (
     <Container maxWidth="xl">
       <p>ToDo: Emergency Contact Table, Filter tables</p>
@@ -65,7 +86,13 @@ const EmployeesPage = (props) => {
       <br />
       <Grid container spacing={2} sx={{ justifyContent: "center" }}>
         <Grid item xs={9}>
-          <DisplayEmployees allUsers={allUsers} fetchUsers={fetchUsers} />
+          <SearchBar filterEmployees={filterEmployees} />
+          <DisplayEmployees
+            allUsers={allUsers}
+            fetchUsers={fetchUsers}
+            toggle={toggle}
+            filterEmployees={filterEmployees}
+          />
         </Grid>
         <Grid item xs={9}>
           <DisplayEmployeeAddresses
