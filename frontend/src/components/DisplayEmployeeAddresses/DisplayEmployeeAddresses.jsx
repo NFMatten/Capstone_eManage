@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import {
@@ -9,7 +9,6 @@ import {
   TableBody,
   TableRow,
   Paper,
-  Button,
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -17,7 +16,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import EditAddress from "../EditAddress/EditAddress";
 
 const DisplayEmployeeAddresses = (props) => {
-  const { addresses, fetchAddresses } = props;
+  const { addresses, fetchAddresses, fetchUsers } = props;
   const [user, token] = useAuth();
   const [show, setShow] = useState(false);
   const [toggle, setToggle] = useState();
@@ -30,6 +29,10 @@ const DisplayEmployeeAddresses = (props) => {
   const hideModal = () => {
     setShow(false);
   };
+
+  useEffect(() => {
+    fetchUsers();
+  }, [toggle, props.toggle]);
 
   const handleEdit = (address) => {
     setAddress(address);
