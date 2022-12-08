@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { TextField, Button, Paper } from "@mui/material";
+import {
+  TextField,
+  Button,
+  Paper,
+  Container,
+  Grid,
+  Typography,
+} from "@mui/material";
 import useAuth from "../../hooks/useAuth";
 
 const AnnouncementForm = (props) => {
@@ -17,29 +24,45 @@ const AnnouncementForm = (props) => {
     setValue("");
   };
   return (
-    <div>
-      <Paper elevation={4} sx={{ my: 5 }}>
-        <TextField
-          id="outlined-multiline-flexible"
-          label="Announcement"
-          placeholder="Create a new Announcement"
-          multiline
-          maxRows={4}
-          value={value}
-          onChange={handleChange}
-          fullWidth
-          margin="normal"
-        />
-        <Button
-          variant="contained"
-          type="submit"
-          onClick={handleSubmit}
-          sx={{ backgroundColor: "#ffc163" }}
-        >
-          Submit
-        </Button>
+    <Container>
+      <Paper elevation={4} sx={{ my: 2 }}>
+        <Grid container alignItems="end" sx={{ paddingBottom: 3 }}>
+          <Typography
+            variant="h5"
+            color="#ff8b31"
+            sx={{ paddingTop: 1, paddingLeft: "40%" }}
+          >
+            Post an Announcment
+          </Typography>
+          <Grid item xs={10.8} sx={{ paddingLeft: 2 }}>
+            <TextField
+              id="outlined-multiline-flexible"
+              label="Announcement"
+              placeholder="Create a new Announcement"
+              multiline
+              maxRows={4}
+              value={value}
+              onChange={handleChange}
+              margin="normal"
+              sx={{ width: "90%" }}
+            />
+          </Grid>
+          <Grid item xs={1} sx={{ marginLeft: "-40px", marginBottom: "10px" }}>
+            <Button
+              variant="contained"
+              type="submit"
+              onClick={handleSubmit}
+              sx={{
+                backgroundColor: "#ffc163",
+                "&:hover": { backgroundColor: "#ffb74a" },
+              }}
+            >
+              Submit
+            </Button>
+          </Grid>
+        </Grid>
       </Paper>
-    </div>
+    </Container>
   );
 };
 
