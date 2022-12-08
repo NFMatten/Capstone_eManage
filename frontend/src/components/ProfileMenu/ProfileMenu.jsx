@@ -1,4 +1,4 @@
-import { Paper, Typography, List } from "@mui/material";
+import { Paper, Typography, List, Grid } from "@mui/material";
 import { Container } from "@mui/system";
 import React, { useState } from "react";
 import AddressForm from "../AddressForm/AddressForm";
@@ -14,12 +14,12 @@ const ProfileMenu = (props) => {
     userAddress,
     addUserAddress,
     updateUserAddress,
+    user,
   } = props;
 
   return (
-    <Container>
-      <Paper elevation={4}>
-        <Typography sx={{ textAlign: "center" }}>Update Profile</Typography>
+    <Grid container justifyContent="center">
+      <Grid item xs={4}>
         {emergencyContact.length > 0 ? (
           <List>
             {emergencyContact.map((contact) => (
@@ -27,12 +27,15 @@ const ProfileMenu = (props) => {
                 {...contact}
                 key={contact.id}
                 updateEmergencyContact={updateEmergencyContact}
+                user={user}
               />
             ))}
           </List>
         ) : (
           <EmergencyContactForm callBack={addEmergencyContact} />
         )}
+      </Grid>
+      <Grid item xs={4}>
         {userAddress.length > 0 ? (
           <List>
             {userAddress.map((address) => (
@@ -40,14 +43,15 @@ const ProfileMenu = (props) => {
                 {...address}
                 key={address.id}
                 updateUserAddress={updateUserAddress}
+                user={user}
               />
             ))}
           </List>
         ) : (
           <AddressForm callBack={addUserAddress} />
         )}
-      </Paper>
-    </Container>
+      </Grid>
+    </Grid>
   );
 };
 
