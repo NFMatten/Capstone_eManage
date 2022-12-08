@@ -78,6 +78,40 @@ const EmployeesPage = (props) => {
     }
   };
 
+  const filterAddresses = (e) => {
+    let filterValue = e.target.value;
+    if (filterValue === "") {
+      fetchAddresses();
+    } else {
+      let filteredAddresses = addresses.filter(
+        (a) =>
+          a.user.first_name.toLowerCase().includes(filterValue.toLowerCase()) ||
+          a.user.last_name.toLowerCase().includes(filterValue.toLowerCase())
+      );
+      if (filteredAddresses.length > 0) {
+        setAddresses(filteredAddresses);
+      }
+    }
+  };
+
+  const filterEmergencyContacts = (e) => {
+    let filterValue = e.target.value;
+    if (filterValue === "") {
+      fetchEmergencyContacts();
+    } else {
+      let filteredEmergencyContacts = emergContacts.filter(
+        (ec) =>
+          ec.user.first_name
+            .toLowerCase()
+            .includes(filterValue.toLowerCase()) ||
+          ec.user.last_name.toLowerCase().includes(filterValue.toLowerCase())
+      );
+      if (filteredEmergencyContacts.length > 0) {
+        setEmergContacts(filteredEmergencyContacts);
+      }
+    }
+  };
+
   return (
     <div>
       <Container
@@ -94,7 +128,11 @@ const EmployeesPage = (props) => {
                 <Typography variant="h6">Employees</Typography>
               </Grid>
               <Grid item xs={2} justifyContent="flex-end">
-                <SearchBar filterEmployees={filterEmployees} />
+                <SearchBar
+                  filterEmployees={filterEmployees}
+                  filterAddresses={filterAddresses}
+                  filterEmergencyContacts={filterEmergencyContacts}
+                />
               </Grid>
             </Grid>
 
@@ -111,6 +149,8 @@ const EmployeesPage = (props) => {
             <DisplayEmployeeAddresses
               addresses={addresses}
               fetchAddresses={fetchAddresses}
+              fetchUsers={fetchUsers}
+              filterEmployees={filterEmployees}
             />
           </Grid>
           <Grid item xs={9}>
