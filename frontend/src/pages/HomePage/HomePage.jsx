@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import useAuth from "../../hooks/useAuth";
-import axios from "axios";
 import HomeLoggedOut from "../../components/HomePage/HomeLoggedOut";
 import HomeLoggedIn from "../../components/HomePage/HomeLoggedIn";
 
 const HomePage = () => {
-  const [user, token] = useAuth();
+  const [user] = useAuth();
 
   return <div>{!user ? <HomeLoggedOut /> : <HomeLoggedIn />}</div>;
 };
