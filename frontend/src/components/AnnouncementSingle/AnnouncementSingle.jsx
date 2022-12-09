@@ -8,7 +8,7 @@ const AnnouncementSingle = (props) => {
       {announcement.id === 1 ? (
         <Container sx={{ my: 2 }}>
           <Typography variant="h6" color="#ffa317">
-            <AccountCircleIcon />
+            <AccountCircleIcon sx={{ marginRight: 1 }} />
             {announcement.user.username}
           </Typography>
           <Typography variant="subtitle2" sx={{ marginLeft: "30px" }}>
@@ -25,7 +25,7 @@ const AnnouncementSingle = (props) => {
           }}
         >
           <Typography variant="h6" color="#ffa317">
-            <AccountCircleIcon />
+            <AccountCircleIcon sx={{ marginRight: 1 }} />
             {announcement.user.username}
           </Typography>
           <Typography variant="subtitle2" sx={{ marginLeft: "30px" }}>
