@@ -13,12 +13,11 @@ const HomeLoggedOut = (props) => {
   return (
     <div>
       <Container maxWidth="xl">
-        <p>Logged Out</p>
         <Grid
           container
           spacing={2}
           rowSpacing={2}
-          sx={{ justifyContent: "center", marginBottom: "3em" }}
+          sx={{ justifyContent: "center", marginBottom: "3em", pb: 6 }}
         >
           <FeaturesList />
           <HomePageSummary />
