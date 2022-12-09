@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TableCell, TableRow, TextField } from "@mui/material";
+import { TableCell, TableRow, TextField, Typography } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import SaveIcon from "@mui/icons-material/Save";
 import axios from "axios";
@@ -31,6 +31,7 @@ const PayrollTableRow = (props) => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(alert("Entry Added!"));
+    window.location.reload();
   };
 
   function total(empSalary, hours, tips) {
@@ -39,10 +40,10 @@ const PayrollTableRow = (props) => {
       const overTimeRate = empSalary * 1.5;
       const overTimeTotal = extraHours * overTimeRate;
       totalPay = empSalary * 80 + overTimeTotal + parseFloat(tips);
-      return "$" + totalPay;
+      return "$" + totalPay.toFixed(2);
     } else {
       totalPay = empSalary * hours + parseFloat(tips);
-      return "$" + totalPay;
+      return "$" + totalPay.toFixed(2);
     }
   }
 
@@ -52,7 +53,10 @@ const PayrollTableRow = (props) => {
       sx={{ "&:last-child td, &:last-child th": { boreder: 0 } }}
     >
       <TableCell>
-        {emp.first_name} {emp.last_name}
+        {" "}
+        <Typography textAlign="center">
+          {emp.first_name} {emp.last_name}
+        </Typography>
       </TableCell>
       <TableCell>
         <TextField
@@ -74,7 +78,9 @@ const PayrollTableRow = (props) => {
           onChange={(e) => setEnd(e.target.value)}
         />
       </TableCell>
-      <TableCell>${emp.salary}</TableCell>
+      <TableCell>
+        <Typography textAlign="center">${emp.salary}</Typography>
+      </TableCell>
       <TableCell>
         <TextField
           id="hours"
@@ -93,7 +99,11 @@ const PayrollTableRow = (props) => {
           onChange={(e) => setTips(e.target.value)}
         />
       </TableCell>
-      <TableCell>{total(emp.salary, hours, tips)}</TableCell>
+      <TableCell>
+        <Typography textAlign="center">
+          {total(emp.salary, hours, tips)}
+        </Typography>
+      </TableCell>
       <TableCell>
         <IconButton
           variant="contained"
