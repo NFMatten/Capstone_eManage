@@ -3,6 +3,7 @@ import ManagerPayroll from "../../components/Payroll/ManagerPayroll";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import DisplayPayroll from "../../components/DisplayPayroll/DisplayPayroll";
 
 const PayrollPage = (props) => {
   const [user, token] = useAuth();
@@ -12,6 +13,7 @@ const PayrollPage = (props) => {
   useEffect(() => {
     fetchPayroll();
     fetchEmployees();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchPayroll = async () => {
@@ -39,29 +41,17 @@ const PayrollPage = (props) => {
     }
   };
 
-  const addToPayroll = async (newEntry) => {
-    try {
-      const response = await axios.post(
-        "http://localhost:8000/payroll/",
-        newEntry,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      );
-      if (response.status === 201) fetchPayroll();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
     <div>
       {user.is_manager ? (
-        <ManagerPayroll
-          employees={employees}
-          fetchPayroll={fetchPayroll}
-          token={token}
-        />
+        <div>
+          <ManagerPayroll
+            employees={employees}
+            fetchPayroll={fetchPayroll}
+            token={token}
+          />
+          <DisplayPayroll payroll={payroll} />
+        </div>
       ) : (
         <EmployeePayroll />
       )}
