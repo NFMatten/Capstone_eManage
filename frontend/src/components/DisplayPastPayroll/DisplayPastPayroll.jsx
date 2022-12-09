@@ -10,12 +10,13 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
+import SearchDateBar from "../../components/SearchDateBar/SearchDateBar";
 
 const DisplayPayroll = (props) => {
-  const { payroll } = props;
+  const { payroll, filterStartDates, filterEndDates } = props;
   return (
     <div>
-      <Grid container justifyContent="center" sx={{ my: 5 }}>
+      <Grid container justifyContent="center" sx={{ my: 5, pb: 10 }}>
         <Grid item xs={8}>
           {payroll.length > 0 ? (
             <TableContainer component={Paper}>
@@ -25,14 +26,18 @@ const DisplayPayroll = (props) => {
                 sx={{
                   textAlign: "center",
                   py: "10px",
-                  marginBottom: "10px",
+                  // marginBottom: "10px",
                   backgroundColor: "#ffc163",
                   boxShadow: 3,
                 }}
               >
                 Past Payroll
               </Typography>
-              <Table sx={{ minWidth: 650 }}>
+              <SearchDateBar
+                filterStartDates={filterStartDates}
+                filterEndDates={filterEndDates}
+              />
+              <Table sx={{ minWidth: 650, mt: 3 }}>
                 <caption align="bottom">
                   *Totals do not calculate for any taxes
                 </caption>
