@@ -11,6 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 import SearchDateBar from "../../components/SearchDateBar/SearchDateBar";
+import { CSVLink } from "react-csv";
 
 const DisplayPayroll = (props) => {
   const { payroll, filterStartDates, filterEndDates } = props;
@@ -26,7 +27,6 @@ const DisplayPayroll = (props) => {
                 sx={{
                   textAlign: "center",
                   py: "10px",
-                  // marginBottom: "10px",
                   backgroundColor: "#ffc163",
                   boxShadow: 3,
                 }}
@@ -37,6 +37,15 @@ const DisplayPayroll = (props) => {
                 filterStartDates={filterStartDates}
                 filterEndDates={filterEndDates}
               />
+              <CSVLink
+                data={payroll}
+                filename={"eManage-payroll.csv"}
+                className="btn btn-primary"
+                target="-blank"
+              >
+                Export Table
+              </CSVLink>
+
               <Table sx={{ minWidth: 650, mt: 3 }}>
                 <caption align="bottom">
                   *Totals do not calculate for any taxes
