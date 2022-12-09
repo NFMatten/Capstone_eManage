@@ -50,17 +50,16 @@ const EmployeePayroll = (props) => {
             </Typography>
             <Grid container justifyContent="center" sx={{ py: 3 }}>
               <Grid item xs={3}>
-                <Typography>
-                  <Typography variant="h6" sx={{ textDecoration: "underline" }}>
-                    Instructions
-                  </Typography>
-                  <ul>
-                    <li>Enter your salary</li>
-                    <li>Enter hours you worked</li>
-                    <li>Enter your tips received</li>
-                    <li>Total will be automatically calculated</li>
-                  </ul>
+                <Typography variant="h6" sx={{ textDecoration: "underline" }}>
+                  Instructions
                 </Typography>
+
+                <ul>
+                  <li>Enter your salary</li>
+                  <li>Enter hours you worked</li>
+                  <li>Enter your tips received</li>
+                  <li>Total will be automatically calculated</li>
+                </ul>
               </Grid>
               <Grid item xs={6}>
                 <Grid container justifyContent="center">
@@ -95,7 +94,7 @@ const EmployeePayroll = (props) => {
               sx={{
                 textAlign: "center",
                 py: "10px",
-                marginBottom: 1,
+                mb: 1,
                 backgroundColor: "#ffc163",
                 boxShadow: 3,
               }}
@@ -163,13 +162,18 @@ const EmployeePayroll = (props) => {
                   </TableCell>
                   <TableCell>
                     <Typography textAlign="center">
-                      {total(salary, hours, tips)}
+                      {total(salary, hours, tips)}*
                     </Typography>
                   </TableCell>
                 </TableRow>
               </TableBody>
             </Table>
           </TableContainer>
+          <Grid item xs={12}>
+            <Typography variant="caption">
+              *Totals do not calculate any taxes
+            </Typography>
+          </Grid>
         </Grid>
       </Grid>
     </div>
