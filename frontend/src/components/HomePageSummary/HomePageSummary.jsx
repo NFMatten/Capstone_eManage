@@ -7,6 +7,7 @@ const HomePageSummary = (props) => {
       <Paper elevation={4} sx={{ justifyContent: "center", padding: 5 }}>
         <Typography
           variant="h5"
+          textAlign="center"
           sx={{
             textDecoration: "underline",
             textDecorationColor: "orange",
