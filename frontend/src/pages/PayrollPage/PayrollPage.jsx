@@ -1,9 +1,9 @@
 import EmployeePayroll from "../../components/Payroll/EmployeePayroll";
-import ManagerPayroll from "../../components/Payroll/ManagerPayroll";
+import PayrollTable from "../../components/PayrollTable/PayrollTable";
+import DisplayPastPayroll from "../../components/DisplayPastPayroll/DisplayPastPayroll";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import DisplayPayroll from "../../components/DisplayPayroll/DisplayPayroll";
 
 const PayrollPage = (props) => {
   const [user, token] = useAuth();
@@ -45,12 +45,8 @@ const PayrollPage = (props) => {
     <div>
       {user.is_manager ? (
         <div>
-          <ManagerPayroll
-            employees={employees}
-            fetchPayroll={fetchPayroll}
-            token={token}
-          />
-          <DisplayPayroll payroll={payroll} />
+          <PayrollTable employees={employees} token={token} />
+          <DisplayPastPayroll payroll={payroll} />
         </div>
       ) : (
         <EmployeePayroll />
