@@ -29,6 +29,7 @@ const ManagerPayroll = (props) => {
                 sx={{
                   textAlign: "center",
                   py: "10px",
+                  marginBottom: 1,
                   backgroundColor: "#ffc163",
                   boxShadow: 3,
                 }}
@@ -38,14 +39,70 @@ const ManagerPayroll = (props) => {
               <Table sx={{ mindWidth: 650 }}>
                 <TableHead>
                   <TableRow>
-                    <TableCell>Employee</TableCell>
-                    <TableCell>Pay Period Start</TableCell>
-                    <TableCell>Pay Period End</TableCell>
-                    <TableCell>Salary</TableCell>
-                    <TableCell>Hours Worked</TableCell>
-                    <TableCell>Tips Received</TableCell>
-                    <TableCell>Total</TableCell>
-                    <TableCell>Save</TableCell>
+                    <TableCell>
+                      <Typography
+                        variant="subtitle2"
+                        sx={{ fontWeight: 600, textAlign: "center" }}
+                      >
+                        Employee
+                      </Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography
+                        variant="subtitle2"
+                        sx={{ fontWeight: 600, textAlign: "center" }}
+                      >
+                        Pay Period Start
+                      </Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography
+                        variant="subtitle2"
+                        sx={{ fontWeight: 600, textAlign: "center" }}
+                      >
+                        Pay Period End
+                      </Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography
+                        variant="subtitle2"
+                        sx={{ fontWeight: 600, textAlign: "center" }}
+                      >
+                        Salary
+                      </Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography
+                        variant="subtitle2"
+                        sx={{ fontWeight: 600, textAlign: "center" }}
+                      >
+                        Hours Worked
+                      </Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography
+                        variant="subtitle2"
+                        sx={{ fontWeight: 600, textAlign: "center" }}
+                      >
+                        Tips Received
+                      </Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography
+                        variant="subtitle2"
+                        sx={{ fontWeight: 600, textAlign: "center" }}
+                      >
+                        Total
+                      </Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography
+                        variant="subtitle2"
+                        sx={{ fontWeight: 600, textAlign: "center" }}
+                      >
+                        Save
+                      </Typography>
+                    </TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
