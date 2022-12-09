@@ -6,8 +6,11 @@ const MenuItems = (props) => {
   return (
     <div>
       <Typography align="center">
+        <Link underline="hover" color="common.white" href="">
+          {"Home |"}
+        </Link>
         <Link underline="hover" color="common.white" href="/calendar">
-          {"View Calendar |"}
+          {" View Calendar |"}
         </Link>
         <Link underline="hover" color="common.white" href="/payroll">
           {" Payroll |"}
