@@ -50,7 +50,7 @@ const PayrollTableRow = (props) => {
   return (
     <TableRow
       key={emp.id}
-      sx={{ "&:last-child td, &:last-child th": { boreder: 0 } }}
+      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
     >
       <TableCell>
         {" "}
@@ -101,7 +101,7 @@ const PayrollTableRow = (props) => {
       </TableCell>
       <TableCell>
         <Typography textAlign="center">
-          {total(emp.salary, hours, tips)}
+          {total(emp.salary, hours, tips)}*
         </Typography>
       </TableCell>
       <TableCell>
