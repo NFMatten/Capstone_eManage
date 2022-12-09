@@ -3,7 +3,6 @@ import { TableCell, TableRow, TextField } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import SaveIcon from "@mui/icons-material/Save";
 import axios from "axios";
-import { useEffect } from "preact/hooks";
 
 const PayrollTableRow = (props) => {
   const { emp, token } = props;
@@ -75,7 +74,7 @@ const PayrollTableRow = (props) => {
           onChange={(e) => setEnd(e.target.value)}
         />
       </TableCell>
-      <TableCell>{emp.salary}</TableCell>
+      <TableCell>${emp.salary}</TableCell>
       <TableCell>
         <TextField
           id="hours"
