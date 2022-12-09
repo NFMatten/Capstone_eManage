@@ -22,9 +22,9 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="li">
-            <a href="">
+            <Link to="/">
               <img src="logo.png" alt="eManage logo" title="eManage"></img>
-            </a>
+            </Link>
           </li>
           <li className="button-center li">
             {user ? (

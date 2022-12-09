@@ -2,7 +2,7 @@ import { Typography, Container } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const AnnouncementSingle = (props) => {
-  const { announcement, user } = props;
+  const { announcement } = props;
   return (
     <>
       {announcement.id === 1 ? (

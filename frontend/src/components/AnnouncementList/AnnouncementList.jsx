@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container, List, Paper, Typography } from "@mui/material";
 import AnnouncementSingle from "../AnnouncementSingle/AnnouncementSingle";
 
 const AnnouncementList = (props) => {
-  const { announcements, getAnnouncements } = props;
+  const { announcements } = props;
   return (
     <Container sx={{ marginTop: 3, paddingBottom: 5 }}>
       <Paper elevation={4}>

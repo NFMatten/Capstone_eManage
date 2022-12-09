@@ -1,12 +1,12 @@
-import { Paper, Link, Typography } from "@mui/material";
+import { Link, Typography } from "@mui/material";
 import useAuth from "../../hooks/useAuth";
 
 const MenuItems = (props) => {
-  const [user, token] = useAuth();
+  const [user] = useAuth();
   return (
     <div>
       <Typography align="center">
-        <Link underline="hover" color="common.white" href="">
+        <Link underline="hover" color="common.white" href="/">
           {"Home |"}
         </Link>
         <Link underline="hover" color="common.white" href="/calendar">

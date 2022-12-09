@@ -11,6 +11,7 @@ const HomeLoggedIn = (props) => {
 
   useEffect(() => {
     getAnnouncements();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getAnnouncements = async () => {
@@ -58,10 +59,7 @@ const HomeLoggedIn = (props) => {
           ) : (
             <></>
           )}
-          <AnnouncementList
-            announcements={announcements}
-            getAnnouncements={getAnnouncements}
-          />
+          <AnnouncementList announcements={announcements} />
         </Container>
       </Container>
     </Container>
