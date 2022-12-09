@@ -26,14 +26,20 @@ const AnnouncementForm = (props) => {
   return (
     <Container>
       <Paper elevation={4} sx={{ my: 2 }}>
+        <Typography
+          variant="h5"
+          color="white"
+          sx={{
+            textAlign: "center",
+            py: "10px",
+            marginBottom: 2,
+            backgroundColor: "#ffc163",
+            boxShadow: 3,
+          }}
+        >
+          Post an Announcement
+        </Typography>
         <Grid container alignItems="end" sx={{ paddingBottom: 3 }}>
-          <Typography
-            variant="h5"
-            color="#ff8b31"
-            sx={{ paddingTop: 1, paddingLeft: "40%" }}
-          >
-            Post an Announcment
-          </Typography>
           <Grid item xs={10.8} sx={{ paddingLeft: 2 }}>
             <TextField
               id="outlined-multiline-flexible"

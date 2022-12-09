@@ -8,6 +8,8 @@ import {
   TableBody,
   TableRow,
   Paper,
+  Grid,
+  Typography,
 } from "@mui/material";
 import PayrollTableRow from "../PayrollTableRow/PayrollTableRow";
 
@@ -17,32 +19,49 @@ const ManagerPayroll = (props) => {
   // create component for individual row with handlesubmit and pass in mapped employee
   return (
     <div>
-      <p>Manager Payroll</p>
-      {employees.length > 0 ? (
-        <TableContainer component={Paper}>
-          <Table sx={{ mindWidth: 650 }}>
-            <TableHead>
-              <TableRow>
-                <TableCell>Employee</TableCell>
-                <TableCell>Pay Period Start</TableCell>
-                <TableCell>Pay Period End</TableCell>
-                <TableCell>Salary</TableCell>
-                <TableCell>Hours Worked</TableCell>
-                <TableCell>Tips Received</TableCell>
-                <TableCell>Total (Before Taxes)</TableCell>
-                <TableCell>Save</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {employees.map((emp) => {
-                return <PayrollTableRow emp={emp} key={emp.id} token={token} />;
-              })}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      ) : (
-        <></>
-      )}
+      <Grid container justifyContent="center">
+        <Grid item xs={8}>
+          {employees.length > 0 ? (
+            <TableContainer component={Paper}>
+              <Typography
+                variant="h5"
+                color="white"
+                sx={{
+                  textAlign: "center",
+                  py: "10px",
+                  backgroundColor: "#ffc163",
+                  boxShadow: 3,
+                }}
+              >
+                Payroll
+              </Typography>
+              <Table sx={{ mindWidth: 650 }}>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Employee</TableCell>
+                    <TableCell>Pay Period Start</TableCell>
+                    <TableCell>Pay Period End</TableCell>
+                    <TableCell>Salary</TableCell>
+                    <TableCell>Hours Worked</TableCell>
+                    <TableCell>Tips Received</TableCell>
+                    <TableCell>Total</TableCell>
+                    <TableCell>Save</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {employees.map((emp) => {
+                    return (
+                      <PayrollTableRow emp={emp} key={emp.id} token={token} />
+                    );
+                  })}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          ) : (
+            <></>
+          )}
+        </Grid>
+      </Grid>
     </div>
   );
 };

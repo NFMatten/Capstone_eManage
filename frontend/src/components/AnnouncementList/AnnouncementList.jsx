@@ -9,8 +9,13 @@ const AnnouncementList = (props) => {
       <Paper elevation={4}>
         <Typography
           variant="h5"
-          color="#ff8b31"
-          sx={{ paddingTop: 1, paddingLeft: "40%" }}
+          color="white"
+          sx={{
+            textAlign: "center",
+            py: "10px",
+            backgroundColor: "#ffc163",
+            boxShadow: 3,
+          }}
         >
           Announcements
         </Typography>
