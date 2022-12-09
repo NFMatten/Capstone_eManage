@@ -1,4 +1,4 @@
-import EmployeePayroll from "../../components/Payroll/EmployeePayroll";
+import EmployeePayroll from "../../components/EmployeePayroll/EmployeePayroll";
 import PayrollTable from "../../components/PayrollTable/PayrollTable";
 import DisplayPastPayroll from "../../components/DisplayPastPayroll/DisplayPastPayroll";
 import useAuth from "../../hooks/useAuth";
@@ -41,12 +41,44 @@ const PayrollPage = (props) => {
     }
   };
 
+  const filterStartDates = (e) => {
+    let filterValue = e.target.value;
+    if (filterValue === "") {
+      fetchPayroll();
+    } else {
+      let filteredStartDates = payroll.filter((p) =>
+        p.period_start.includes(filterValue)
+      );
+      if (filteredStartDates.length > 0) {
+        setPayroll(filteredStartDates);
+      }
+    }
+  };
+
+  const filterEndDates = (e) => {
+    let filterValue = e.target.value;
+    if (filterValue === "") {
+      fetchPayroll();
+    } else {
+      let filteredEndDates = payroll.filter((p) =>
+        p.period_end.includes(filterValue)
+      );
+      if (filteredEndDates.length > 0) {
+        setPayroll(filteredEndDates);
+      }
+    }
+  };
+
   return (
     <div>
       {user.is_manager ? (
         <div>
           <PayrollTable employees={employees} token={token} />
-          <DisplayPastPayroll payroll={payroll} />
+          <DisplayPastPayroll
+            payroll={payroll}
+            filterStartDates={filterStartDates}
+            filterEndDates={filterEndDates}
+          />
         </div>
       ) : (
         <EmployeePayroll />
