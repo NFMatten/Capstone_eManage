@@ -34,6 +34,9 @@ const PayrollTable = (props) => {
                 Payroll
               </Typography>
               <Table sx={{ minWidth: 650 }}>
+                <caption align="bottom">
+                  *Totals do not calculate for any taxes
+                </caption>
                 <TableHead>
                   <TableRow>
                     <TableCell>

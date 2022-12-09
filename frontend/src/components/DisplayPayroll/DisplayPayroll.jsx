@@ -33,6 +33,9 @@ const DisplayPayroll = (props) => {
                 Past Payroll
               </Typography>
               <Table sx={{ minWidth: 650 }}>
+                <caption align="bottom">
+                  *Totals do not calculate for any taxes
+                </caption>
                 <TableHead>
                   <TableRow>
                     <TableCell>
@@ -134,7 +137,7 @@ const DisplayPayroll = (props) => {
                         </TableCell>
                         <TableCell>
                           <Typography textAlign="center">
-                            {row.total_before_taxes}
+                            ${row.total_before_taxes}*
                           </Typography>
                         </TableCell>
                       </TableRow>
