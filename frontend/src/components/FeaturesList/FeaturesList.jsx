@@ -10,6 +10,7 @@ const FeaturesList = (props) => {
       >
         <Typography
           variant="h5"
+          textAlign="center"
           sx={{
             textDecoration: "underline",
             textDecorationColor: "orange",
