@@ -33,7 +33,7 @@ const PayrollTable = (props) => {
               >
                 Payroll
               </Typography>
-              <Table sx={{ mindWidth: 650 }}>
+              <Table sx={{ minWidth: 650 }}>
                 <TableHead>
                   <TableRow>
                     <TableCell>
