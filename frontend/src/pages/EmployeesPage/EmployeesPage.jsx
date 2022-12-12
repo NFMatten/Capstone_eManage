@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import DisplayEmployeeAddresses from "../../components/DisplayEmployeeAddresses/DisplayEmployeeAddresses";
 import DisplayEmployees from "../../components/DisplayEmployees/DisplayEmployees";
 import useAuth from "../../hooks/useAuth";
-import { Grid, Container, Typography } from "@mui/material/";
+import { Grid, Paper } from "@mui/material/";
 import DisplayEmergencyContacts from "../../components/DisplayEmergencyContacts/DisplayEmergencyContacts";
 import SearchBar from "../../components/SearchBar/SearchBar";
 
@@ -18,6 +18,7 @@ const EmployeesPage = (props) => {
     fetchUsers();
     fetchAddresses();
     fetchEmergencyContacts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchUsers = async () => {
@@ -114,54 +115,38 @@ const EmployeesPage = (props) => {
 
   return (
     <div>
-      <Container
-        sx={{
-          backgroundColor: "#ffddaa",
-          paddingBottom: "4em",
-          boxShadow: 4,
-        }}
-      >
-        <Grid container spacing={3} sx={{ justifyContent: "center" }}>
-          <Grid item xs={9}>
-            <Grid container>
-              <Grid item xs={9.5} justifyContent="flex-start">
-                <Typography variant="h6">Employees</Typography>
-              </Grid>
-              <Grid item xs={2} justifyContent="flex-end">
-                <SearchBar
-                  filterEmployees={filterEmployees}
-                  filterAddresses={filterAddresses}
-                  filterEmergencyContacts={filterEmergencyContacts}
-                />
-              </Grid>
-            </Grid>
-
-            <DisplayEmployees
-              allUsers={allUsers}
-              fetchUsers={fetchUsers}
-              toggle={toggle}
-              filterEmployees={filterEmployees}
-              payroll={false}
-            />
-          </Grid>
-          <Grid item xs={9}>
-            <Typography variant="h6">Employee Addresses</Typography>
-            <DisplayEmployeeAddresses
-              addresses={addresses}
-              fetchAddresses={fetchAddresses}
-              fetchUsers={fetchUsers}
-              filterEmployees={filterEmployees}
-            />
-          </Grid>
-          <Grid item xs={9}>
-            <Typography variant="h6">Employee Emergency Contacts</Typography>
-            <DisplayEmergencyContacts
-              emergContacts={emergContacts}
-              fetchEmergencyContacts={fetchEmergencyContacts}
-            />
-          </Grid>
+      <Grid container spacing={3} sx={{ justifyContent: "center" }}>
+        <Grid item xs={9}>
+          <SearchBar
+            filterEmployees={filterEmployees}
+            filterAddresses={filterAddresses}
+            filterEmergencyContacts={filterEmergencyContacts}
+          />
         </Grid>
-      </Container>
+        <Grid item xs={9}>
+          <DisplayEmployees
+            allUsers={allUsers}
+            fetchUsers={fetchUsers}
+            toggle={toggle}
+            filterEmployees={filterEmployees}
+            payroll={false}
+          />
+        </Grid>
+        <Grid item xs={9}>
+          <DisplayEmployeeAddresses
+            addresses={addresses}
+            fetchAddresses={fetchAddresses}
+            fetchUsers={fetchUsers}
+            filterEmployees={filterEmployees}
+          />
+        </Grid>
+        <Grid item xs={9}>
+          <DisplayEmergencyContacts
+            emergContacts={emergContacts}
+            fetchEmergencyContacts={fetchEmergencyContacts}
+          />
+        </Grid>
+      </Grid>
     </div>
   );
 };
