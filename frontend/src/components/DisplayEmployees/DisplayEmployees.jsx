@@ -18,7 +18,7 @@ import EditEmployee from "../EditEmployee/EditEmployee";
 
 const DisplayEmployees = (props) => {
   const { allUsers, fetchUsers, payroll } = props;
-  const [user, token] = useAuth();
+  const [token] = useAuth();
   const [show, setShow] = useState(false);
   const [toggle, setToggle] = useState();
   const [employee, setEmployee] = useState([]);

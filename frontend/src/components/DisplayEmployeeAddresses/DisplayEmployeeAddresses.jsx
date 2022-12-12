@@ -18,7 +18,7 @@ import EditAddress from "../EditAddress/EditAddress";
 
 const DisplayEmployeeAddresses = (props) => {
   const { addresses, fetchAddresses, fetchUsers } = props;
-  const [user, token] = useAuth();
+  const [token] = useAuth();
   const [show, setShow] = useState(false);
   const [toggle, setToggle] = useState();
   const [address, setAddress] = useState([]);

@@ -18,7 +18,7 @@ import EditEmergencyContact from "../EditEmergencyContact/EditEmergencyContact";
 
 const DisplayEmergencyContacts = (props) => {
   const { emergContacts, fetchEmergencyContacts } = props;
-  const [user, token] = useAuth();
+  const [token] = useAuth();
   const [show, setShow] = useState(false);
   const [toggle, setToggle] = useState();
   const [emergencyContact, setEmergencyContact] = useState([]);
