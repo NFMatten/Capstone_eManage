@@ -118,6 +118,7 @@ const DisplayEmployeeAddresses = (props) => {
                         onClick={() => handleEdit(address)}
                         type="button"
                         size="small"
+                        title="Edit Address"
                       >
                         <EditIcon style={{ color: "orange" }} />
                       </IconButton>
@@ -128,6 +129,7 @@ const DisplayEmployeeAddresses = (props) => {
                         onClick={() => deleteAddress(address.id)}
                         type="submit"
                         size="small"
+                        title="Delete Address"
                       >
                         <DeleteIcon style={{ color: "orange" }} />
                       </IconButton>

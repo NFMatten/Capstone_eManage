@@ -130,6 +130,7 @@ const DisplayEmployees = (props) => {
                             onClick={() => handleEdit(employee)}
                             type="button"
                             size="small"
+                            title="Edit Employee"
                           >
                             <EditIcon style={{ color: "orange" }} />
                           </IconButton>
@@ -140,6 +141,7 @@ const DisplayEmployees = (props) => {
                             onClick={() => deleteUser(employee.id)}
                             type="submit"
                             size="small"
+                            title="Remove Employee"
                           >
                             <DeleteIcon style={{ color: "orange" }} />
                           </IconButton>

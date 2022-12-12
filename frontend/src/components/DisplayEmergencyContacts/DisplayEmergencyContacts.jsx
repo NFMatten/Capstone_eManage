@@ -109,6 +109,7 @@ const DisplayEmergencyContacts = (props) => {
                         onClick={() => handleEdit(emergencyContact)}
                         type="button"
                         size="small"
+                        title="Edit Emergency Contact"
                       >
                         <EditIcon style={{ color: "orange" }} />
                       </IconButton>
@@ -121,6 +122,7 @@ const DisplayEmergencyContacts = (props) => {
                         }
                         type="submit"
                         size="small"
+                        title="Delete Emergency Contact"
                       >
                         <DeleteIcon style={{ color: "orange" }} />
                       </IconButton>
