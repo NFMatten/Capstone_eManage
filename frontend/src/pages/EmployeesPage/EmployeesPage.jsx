@@ -11,6 +11,7 @@ const EmployeesPage = (props) => {
   const [allUsers, setAllUsers] = useState([]);
   const [addresses, setAddresses] = useState([]);
   const [emergContacts, setEmergContacts] = useState([]);
+  /* eslint-disable no-unused-vars */
   const [toggle, setToggle] = useState();
   const [user, token] = useAuth();
 

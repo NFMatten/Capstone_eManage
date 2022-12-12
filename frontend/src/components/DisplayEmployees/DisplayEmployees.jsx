@@ -33,6 +33,7 @@ const DisplayEmployees = (props) => {
 
   useEffect(() => {
     fetchUsers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [toggle, props.toggle]);
 
   const handleEdit = (employee) => {
