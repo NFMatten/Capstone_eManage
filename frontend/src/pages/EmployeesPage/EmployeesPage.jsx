@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import DisplayEmployeeAddresses from "../../components/DisplayEmployeeAddresses/DisplayEmployeeAddresses";
 import DisplayEmployees from "../../components/DisplayEmployees/DisplayEmployees";
 import useAuth from "../../hooks/useAuth";
-import { Grid, Paper } from "@mui/material/";
+import { Grid } from "@mui/material/";
 import DisplayEmergencyContacts from "../../components/DisplayEmergencyContacts/DisplayEmergencyContacts";
 import SearchBar from "../../components/SearchBar/SearchBar";
 
