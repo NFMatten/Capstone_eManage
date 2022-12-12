@@ -110,6 +110,7 @@ const PayrollTableRow = (props) => {
           onClick={handleSubmit}
           type="submit"
           size="small"
+          title="Save"
         >
           <SaveIcon style={{ color: "orange" }} />
         </IconButton>
