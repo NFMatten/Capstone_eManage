@@ -9,7 +9,8 @@ const PayrollTableRow = (props) => {
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
   const [hours, setHours] = useState("");
-  const [tips, setTips] = useState(0);
+  const [tips, setTips] = useState("");
+  /* eslint-disable no-unused-vars */
   const [salary, setSalary] = useState(emp.salary);
   const [userId, setUserId] = useState(emp.id);
   let totalPay;
@@ -35,6 +36,9 @@ const PayrollTableRow = (props) => {
   };
 
   function total(empSalary, hours, tips) {
+    if (tips === "") {
+      tips = 0;
+    }
     if (hours > 80) {
       const extraHours = hours - 80;
       const overTimeRate = empSalary * 1.5;
@@ -64,6 +68,7 @@ const PayrollTableRow = (props) => {
           placeholder="Start Date..."
           helperText="Start Date"
           type="date"
+          size="small"
           value={start}
           onChange={(e) => setStart(e.target.value)}
         />
@@ -74,6 +79,7 @@ const PayrollTableRow = (props) => {
           placeholder="End Date"
           helperText="End Date"
           type="date"
+          size="small"
           value={end}
           onChange={(e) => setEnd(e.target.value)}
         />
@@ -86,6 +92,7 @@ const PayrollTableRow = (props) => {
           id="hours"
           label="Hours Worked"
           placeholder="Hours Worked"
+          size="small"
           value={hours}
           onChange={(e) => setHours(e.target.value)}
         />
@@ -95,8 +102,11 @@ const PayrollTableRow = (props) => {
           id="tips"
           label="Tips Received"
           placeholder="Tips Received"
+          size="small"
           value={tips}
-          onChange={(e) => setTips(e.target.value)}
+          onChange={(e) => {
+            setTips(e.target.value);
+          }}
         />
       </TableCell>
       <TableCell>
