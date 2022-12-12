@@ -13,7 +13,7 @@ import {
 import SearchDateBar from "../../components/SearchDateBar/SearchDateBar";
 
 const DisplayPayroll = (props) => {
-  const { payroll, filterStartDates, filterEndDates } = props;
+  const { payroll, filterStartDates, filterEndDates, fetchPayroll } = props;
   return (
     <div>
       <Grid container justifyContent="center" sx={{ my: 5, pb: 10 }}>
@@ -36,6 +36,7 @@ const DisplayPayroll = (props) => {
                 filterStartDates={filterStartDates}
                 filterEndDates={filterEndDates}
                 payroll={payroll}
+                fetchPayroll={fetchPayroll}
               />
 
               <Table sx={{ minWidth: 650, mt: 3 }}>
