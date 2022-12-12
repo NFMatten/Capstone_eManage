@@ -76,6 +76,7 @@ const PayrollPage = (props) => {
           <PayrollTable employees={employees} token={token} />
           <DisplayPastPayroll
             payroll={payroll}
+            fetchPayroll={fetchPayroll}
             filterStartDates={filterStartDates}
             filterEndDates={filterEndDates}
           />
