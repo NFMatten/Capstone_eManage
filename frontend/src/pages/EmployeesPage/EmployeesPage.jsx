@@ -140,7 +140,7 @@ const EmployeesPage = (props) => {
             filterEmployees={filterEmployees}
           />
         </Grid>
-        <Grid item xs={9}>
+        <Grid item xs={9} sx={{ mb: 15 }}>
           <DisplayEmergencyContacts
             emergContacts={emergContacts}
             fetchEmergencyContacts={fetchEmergencyContacts}
