@@ -9,6 +9,7 @@ import {
   TableBody,
   TableRow,
   Paper,
+  Typography,
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -55,6 +56,18 @@ const DisplayEmployeeAddresses = (props) => {
     <div>
       {addresses.length > 0 ? (
         <TableContainer component={Paper}>
+          <Typography
+            variant="h5"
+            color="white"
+            sx={{
+              textAlign: "center",
+              py: "10px",
+              backgroundColor: "#ffc163",
+              boxShadow: 3,
+            }}
+          >
+            Employee Addresses
+          </Typography>
           <Table sx={{ minWidth: 650 }}>
             <TableHead>
               <TableRow>

@@ -9,7 +9,7 @@ import {
   TableBody,
   TableRow,
   Paper,
-  Button,
+  Typography,
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -55,6 +55,18 @@ const DisplayEmergencyContacts = (props) => {
     <div>
       {emergContacts.length > 0 ? (
         <TableContainer component={Paper}>
+          <Typography
+            variant="h5"
+            color="white"
+            sx={{
+              textAlign: "center",
+              py: "10px",
+              backgroundColor: "#ffc163",
+              boxShadow: 3,
+            }}
+          >
+            Employee Emergency Contacts
+          </Typography>
           <Table sx={{ minWidth: 650 }}>
             <TableHead>
               <TableRow>
