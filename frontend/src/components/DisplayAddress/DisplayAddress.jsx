@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Paper, Typography, Container, Grid, Tooltip } from "@mui/material";
+import { Paper, Typography, Container, Grid } from "@mui/material";
 import AddressForm from "../AddressForm/AddressForm";
 import IconButton from "@mui/material/IconButton";
 import EditIcon from "@mui/icons-material/Edit";
@@ -25,8 +25,8 @@ const DisplayAddress = (props) => {
           {user.first_name}'s Address
         </Typography>
         <Grid container justifyContent="center" sx={{ marginTop: 2 }}>
-          <Grid item xs={6.5}>
-            <Typography variant="h6" sx={{ textAlign: "right" }}>
+          <Grid item xs={4}>
+            <Typography variant="h6">
               {street_address}
               <br />
               {city}, {state}
@@ -34,13 +34,11 @@ const DisplayAddress = (props) => {
               {zip}
             </Typography>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={1}>
             <Grid container sx={{ paddingTop: 3 }}>
-              <Tooltip title="Edit your address">
-                <IconButton variant="contained" onClick={toggleForm}>
-                  <EditIcon style={{ color: "orange" }} />
-                </IconButton>
-              </Tooltip>
+              <IconButton variant="contained" onClick={toggleForm}>
+                <EditIcon style={{ color: "orange" }} />
+              </IconButton>
             </Grid>
           </Grid>
           {showForm && <AddressForm callBack={updateUserAddress} />}
