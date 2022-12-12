@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Paper, Typography, Container, Grid, Tooltip } from "@mui/material";
+import { Paper, Typography, Container, Grid } from "@mui/material";
 import EmergencyContactForm from "../EmergencyContactForm/EmergencyContactForm";
 import IconButton from "@mui/material/IconButton";
 import EditIcon from "@mui/icons-material/Edit";
@@ -37,11 +37,9 @@ const DisplayEmergencyContact = (props) => {
           </Grid>
           <Grid item xs={5}>
             <Grid container sx={{ paddingTop: 3 }}>
-              <Tooltip title="Edit your Emergency Contact">
-                <IconButton variant="contained" onClick={toggleForm}>
-                  <EditIcon style={{ color: "orange" }} />
-                </IconButton>
-              </Tooltip>
+              <IconButton variant="contained" onClick={toggleForm}>
+                <EditIcon style={{ color: "orange" }} />
+              </IconButton>
             </Grid>
           </Grid>
 
