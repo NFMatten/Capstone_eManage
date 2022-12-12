@@ -1,6 +1,9 @@
 import { Grid, Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import React from "react";
+import DownloadForOfflineIcon from "@mui/icons-material/DownloadForOffline";
+import IconButton from "@mui/material/IconButton";
+import { CSVLink } from "react-csv";
 
 const SearchDateBar = (props) => {
   return (
@@ -37,7 +40,21 @@ const SearchDateBar = (props) => {
               sx={{ backgroundColor: "white" }}
             />
           </Grid>
-          <Typography variant="caption">End Date</Typography>
+          <Typography variant="caption" style={{ textAlign: "center" }}>
+            End Date
+          </Typography>
+        </Grid>
+        <Grid item xs={1.1}>
+          <CSVLink
+            data={props.payroll}
+            filename={"eManage-payroll.csv"}
+            className="btn btn-primary"
+            target="-blank"
+          >
+            <IconButton title="Download Table to CSV File">
+              <DownloadForOfflineIcon style={{ color: "orange" }} />
+            </IconButton>
+          </CSVLink>
         </Grid>
       </Grid>
     </div>
