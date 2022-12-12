@@ -75,12 +75,36 @@ const DisplayEmployees = (props) => {
           <Table sx={{ minWidth: 650 }}>
             <TableHead>
               <TableRow>
-                <TableCell>Name</TableCell>
-                <TableCell>Email</TableCell>
-                <TableCell>Phone Number</TableCell>
-                <TableCell>Salary</TableCell>
-                <TableCell>Hire Date</TableCell>
-                <TableCell>Job Title</TableCell>
+                <TableCell>
+                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                    Name
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                    Email
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                    Phone Number
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                    Salary
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                    Hire Date
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                    Job Title
+                  </Typography>
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>

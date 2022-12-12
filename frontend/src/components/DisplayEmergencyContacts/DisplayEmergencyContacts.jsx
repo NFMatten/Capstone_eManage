@@ -70,9 +70,21 @@ const DisplayEmergencyContacts = (props) => {
           <Table sx={{ minWidth: 650 }}>
             <TableHead>
               <TableRow>
-                <TableCell>Employee</TableCell>
-                <TableCell>Contact Name</TableCell>
-                <TableCell>Contact Phone Number</TableCell>
+                <TableCell>
+                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                    Employee
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                    Contact Name
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                    Contact Phone Number
+                  </Typography>
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>

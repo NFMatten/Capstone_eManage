@@ -71,11 +71,31 @@ const DisplayEmployeeAddresses = (props) => {
           <Table sx={{ minWidth: 650 }}>
             <TableHead>
               <TableRow>
-                <TableCell>Employee</TableCell>
-                <TableCell>Street</TableCell>
-                <TableCell>City</TableCell>
-                <TableCell>State</TableCell>
-                <TableCell>Zip Code</TableCell>
+                <TableCell>
+                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                    Employee
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                    Street
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                    City
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                    State
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                    Zip Code
+                  </Typography>
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
