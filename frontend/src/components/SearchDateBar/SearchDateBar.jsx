@@ -1,6 +1,6 @@
 import { Grid, Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import DownloadForOfflineIcon from "@mui/icons-material/DownloadForOffline";
 import IconButton from "@mui/material/IconButton";
 import { CSVLink } from "react-csv";
