@@ -36,7 +36,9 @@ const Navbar = () => {
               </>
             ) : (
               <>
-                <button onClick={() => navigate("/login")}>Login</button>
+                <button onClick={() => navigate("/login")} data-test="login">
+                  Login
+                </button>
                 <button
                   className="btn-space"
                   onClick={() => navigate("/register")}
