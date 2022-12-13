@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import FullCalendar, { formatDate } from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import { INITIAL_EVENTS, createEventId } from "../../utils/event-utils";
-import { Paper } from "@mui/material";
+import { Paper, FormGroup, FormControlLabel, Checkbox } from "@mui/material";
 import "./Calendar.css";
 
 const Calendar = (props) => {
-  const { allEvents, getEvent, addNewEvent, deleteEvent, user, token } = props;
+  const { allEvents, addNewEvent, deleteEvent, user } = props;
   const [currentEvents, setCurrentEvents] = useState([]);
+  const [showEvents, setShowEvents] = useState(false);
 
   const handleDateSelect = (selectInfo) => {
     let title = prompt("Please enter an Employee Name");
@@ -83,7 +84,7 @@ const Calendar = (props) => {
     return (
       <div className="calendar-sidebar">
         <div className="calendar-sidebar-section">
-          <h2>Instructions</h2>
+          <h2 className="calendar-sidebar-title">Instructions</h2>
           <ul className="sidebar-ul">
             <li className="sidebar-li">
               Select dates and you will be prompted to create a new event
@@ -93,8 +94,21 @@ const Calendar = (props) => {
           </ul>
         </div>
         <div className="calendar-sidebar-section">
-          <h2>All Events ({currentEvents.length})</h2>
-          <ul>{currentEvents.map(renderSidebarEvent)}</ul>
+          <FormGroup>
+            <FormControlLabel
+              control={<Checkbox />}
+              label="Show All Scheduled"
+              onChange={() => setShowEvents(!showEvents)}
+            />
+          </FormGroup>
+          {showEvents ? (
+            <div>
+              <h2>Scheduled ({currentEvents.length})</h2>
+              <ul>{currentEvents.map(renderSidebarEvent)}</ul>
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
       </div>
     );
