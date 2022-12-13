@@ -71,6 +71,7 @@ const PayrollTableRow = (props) => {
           size="small"
           value={start}
           onChange={(e) => setStart(e.target.value)}
+          data-test="start-date"
         />
       </TableCell>
       <TableCell>
@@ -82,6 +83,7 @@ const PayrollTableRow = (props) => {
           size="small"
           value={end}
           onChange={(e) => setEnd(e.target.value)}
+          data-test="end-date"
         />
       </TableCell>
       <TableCell>
@@ -95,6 +97,7 @@ const PayrollTableRow = (props) => {
           size="small"
           value={hours}
           onChange={(e) => setHours(e.target.value)}
+          data-test="hours-worked"
         />
       </TableCell>
       <TableCell>
@@ -107,6 +110,7 @@ const PayrollTableRow = (props) => {
           onChange={(e) => {
             setTips(e.target.value);
           }}
+          data-test="tips"
         />
       </TableCell>
       <TableCell>
