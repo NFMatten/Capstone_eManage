@@ -44,10 +44,15 @@ const HomeLoggedIn = (props) => {
     <Container>
       <Container>
         <Paper sx={{ mx: "50px" }}>
-          <Typography variant="h5" color="#ffa317" align="center">
+          <Typography
+            variant="h5"
+            color="#ffa317"
+            align="center"
+            sx={{ pt: 1 }}
+          >
             Welcome to eManage, {user.first_name}!
           </Typography>
-          <Typography variant="body1" align="center">
+          <Typography variant="body1" align="center" sx={{ pb: 2 }}>
             {" "}
             Through eManage, you will be able to check our <b>Calendar</b> for
             scheduling, estimating <b>Payroll</b> and more!
