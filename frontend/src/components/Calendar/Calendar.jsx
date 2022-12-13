@@ -104,7 +104,9 @@ const Calendar = (props) => {
           {showEvents ? (
             <div>
               <h2>Scheduled ({currentEvents.length})</h2>
-              <ul>{currentEvents.map(renderSidebarEvent)}</ul>
+              <ul>
+                {currentEvents.slice(0).reverse().map(renderSidebarEvent)}
+              </ul>
             </div>
           ) : (
             <></>
