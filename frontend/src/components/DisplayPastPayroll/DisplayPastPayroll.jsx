@@ -104,52 +104,55 @@ const DisplayPayroll = (props) => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {payroll.map((row) => {
-                    return (
-                      <TableRow
-                        key={row.id}
-                        sx={{
-                          "&:last-child td, &:last-child th": { border: 0 },
-                        }}
-                      >
-                        <TableCell>
-                          <Typography textAlign="center">
-                            {row.period_start}
-                          </Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography textAlign="center">
-                            {row.period_end}
-                          </Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography textAlign="center">
-                            {row.user.first_name} {row.user.last_name}
-                          </Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography textAlign="center">
-                            {row.salary}
-                          </Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography textAlign="center">
-                            {row.hours_worked}
-                          </Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography textAlign="center">
-                            {row.tips_received}
-                          </Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography textAlign="center">
-                            ${row.total_before_taxes}*
-                          </Typography>
-                        </TableCell>
-                      </TableRow>
-                    );
-                  })}
+                  {payroll
+                    .slice(0)
+                    .reverse()
+                    .map((row) => {
+                      return (
+                        <TableRow
+                          key={row.id}
+                          sx={{
+                            "&:last-child td, &:last-child th": { border: 0 },
+                          }}
+                        >
+                          <TableCell>
+                            <Typography textAlign="center">
+                              {row.period_start}
+                            </Typography>
+                          </TableCell>
+                          <TableCell>
+                            <Typography textAlign="center">
+                              {row.period_end}
+                            </Typography>
+                          </TableCell>
+                          <TableCell>
+                            <Typography textAlign="center">
+                              {row.user.first_name} {row.user.last_name}
+                            </Typography>
+                          </TableCell>
+                          <TableCell>
+                            <Typography textAlign="center">
+                              {row.salary}
+                            </Typography>
+                          </TableCell>
+                          <TableCell>
+                            <Typography textAlign="center">
+                              {row.hours_worked}
+                            </Typography>
+                          </TableCell>
+                          <TableCell>
+                            <Typography textAlign="center">
+                              {row.tips_received}
+                            </Typography>
+                          </TableCell>
+                          <TableCell>
+                            <Typography textAlign="center">
+                              ${row.total_before_taxes}*
+                            </Typography>
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
                 </TableBody>
               </Table>
             </TableContainer>
