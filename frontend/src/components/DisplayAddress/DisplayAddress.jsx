@@ -11,39 +11,21 @@ const DisplayAddress = (props) => {
   const toggleForm = () => setShowForm(!showForm);
   return (
     <Container>
-      <Paper elevation={4} sx={{ my: 3, minHeight: 200 }}>
-        <Typography
-          variant="h5"
-          color="white"
-          sx={{
-            textAlign: "center",
-            py: "10px",
-            backgroundColor: "#ffc163",
-            boxShadow: 3,
-          }}
-        >
-          {user.first_name}'s Address
-        </Typography>
-        <Grid container justifyContent="center" sx={{ marginTop: 2 }}>
-          <Grid item xs={4}>
-            <Typography variant="h6">
-              {street_address}
-              <br />
-              {city}, {state}
-              <br />
-              {zip}
-            </Typography>
-          </Grid>
-          <Grid item xs={1}>
-            <Grid container sx={{ paddingTop: 3 }}>
-              <IconButton variant="contained" onClick={toggleForm}>
-                <EditIcon style={{ color: "orange" }} />
-              </IconButton>
-            </Grid>
-          </Grid>
-          {showForm && <AddressForm callBack={updateUserAddress} />}
+      <Grid container justifyContent="center">
+        <Grid item xs={2}>
+          <Typography variant="h6" sx={{ minWidth: "185px" }}>
+            {street_address}
+            <br />
+            {city}, {state}
+            <br />
+            {zip}
+            <IconButton variant="contained" onClick={toggleForm} sx={{ ml: 7 }}>
+              <EditIcon style={{ color: "orange" }} />
+            </IconButton>
+          </Typography>
         </Grid>
-      </Paper>
+        {showForm && <AddressForm callBack={updateUserAddress} />}
+      </Grid>
     </Container>
   );
 };
