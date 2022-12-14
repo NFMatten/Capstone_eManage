@@ -127,14 +127,16 @@ const Calendar = (props) => {
 
   function renderSidebarEvent(event) {
     return (
-      <li key={event.id}>
+      <li key={event.id} style={{ marginBottom: "5px" }}>
         <b>
           {formatDate(event.start, {
             year: "numeric",
             month: "short",
             day: "numeric",
+            hour: "numeric",
           })}
-        </b>
+        </b>{" "}
+        <br />
         <i>{event.title}</i>
       </li>
     );
