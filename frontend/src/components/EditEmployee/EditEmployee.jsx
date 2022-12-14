@@ -1,12 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Paper,
-  TextField,
-  Button,
-  Typography,
-  Container,
-  Grid,
-} from "@mui/material";
+import { Paper, TextField, Button, Typography, Grid } from "@mui/material";
 import "./EditEmployee.css";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
