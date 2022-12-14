@@ -19,38 +19,70 @@ const ProfileMenu = (props) => {
 
   return (
     <Grid container justifyContent="center">
-      <Grid item xs={4}>
-        {emergencyContact.length > 0 ? (
-          <List>
-            {emergencyContact.map((contact) => (
-              <DisplayEmergencyContact
-                {...contact}
-                key={contact.id}
-                updateEmergencyContact={updateEmergencyContact}
-                user={user}
-              />
-            ))}
-          </List>
-        ) : (
-          <EmergencyContactForm callBack={addEmergencyContact} />
-        )}
-      </Grid>
-      <Grid item xs={4}>
-        {userAddress.length > 0 ? (
-          <List>
-            {userAddress.map((address) => (
-              <DisplayAddress
-                {...address}
-                key={address.id}
-                updateUserAddress={updateUserAddress}
-                user={user}
-              />
-            ))}
-          </List>
-        ) : (
-          <AddressForm callBack={addUserAddress} />
-        )}
-      </Grid>
+      <Paper elevation={4} sx={{ my: 3, minWidth: "50%" }}>
+        <Typography
+          variant="h5"
+          color="white"
+          sx={{
+            textAlign: "center",
+            py: "10px",
+            backgroundColor: "#ffc163",
+            boxShadow: 3,
+          }}
+        >
+          Personal Information
+        </Typography>
+        <Grid item xs={12}>
+          <Typography
+            variant="h5"
+            textAlign="center"
+            sx={{ textDecoration: "underline", textDecorationColor: "orange" }}
+          >
+            Address
+          </Typography>
+          <Grid item xs={12}>
+            {userAddress.length > 0 ? (
+              <List>
+                {userAddress.map((address) => (
+                  <DisplayAddress
+                    {...address}
+                    key={address.id}
+                    updateUserAddress={updateUserAddress}
+                    user={user}
+                  />
+                ))}
+              </List>
+            ) : (
+              <AddressForm callBack={addUserAddress} />
+            )}
+          </Grid>
+        </Grid>
+        <Grid item xs={12} sx={{ my: 3 }}>
+          <Typography
+            variant="h5"
+            textAlign="center"
+            sx={{ textDecoration: "underline", textDecorationColor: "orange" }}
+          >
+            Emergency Contact
+          </Typography>
+          <Grid item xs={12}>
+            {emergencyContact.length > 0 ? (
+              <List>
+                {emergencyContact.map((contact) => (
+                  <DisplayEmergencyContact
+                    {...contact}
+                    key={contact.id}
+                    updateEmergencyContact={updateEmergencyContact}
+                    user={user}
+                  />
+                ))}
+              </List>
+            ) : (
+              <EmergencyContactForm callBack={addEmergencyContact} />
+            )}
+          </Grid>
+        </Grid>
+      </Paper>
     </Grid>
   );
 };
