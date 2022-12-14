@@ -101,12 +101,27 @@ const EditEmergencyContact = (props) => {
                 />
               </Grid>
               <Grid item xs={2}>
-                <Button type="submit" variant="contained">
+                <Button
+                  type="submit"
+                  variant="contained"
+                  sx={{
+                    backgroundColor: "#ffc163",
+                    "&:hover": { backgroundColor: "#ffb74a" },
+                  }}
+                >
                   Update
                 </Button>
               </Grid>
               <Grid item xs={2}>
-                <Button type="button" variant="contained" onClick={handleClose}>
+                <Button
+                  type="button"
+                  variant="contained"
+                  onClick={handleClose}
+                  sx={{
+                    backgroundColor: "#ffc163",
+                    "&:hover": { backgroundColor: "#ffb74a" },
+                  }}
+                >
                   Close
                 </Button>
               </Grid>

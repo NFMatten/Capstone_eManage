@@ -111,7 +111,15 @@ const EditAddress = (props) => {
                 />
               </Grid>
               <Grid item xs={4}>
-                <Button type="submit" variant="contained" sx={{ ml: -8 }}>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  sx={{
+                    ml: -8,
+                    backgroundColor: "#ffc163",
+                    "&:hover": { backgroundColor: "#ffb74a" },
+                  }}
+                >
                   Update
                 </Button>
               </Grid>
@@ -120,7 +128,11 @@ const EditAddress = (props) => {
                   type="button"
                   variant="contained"
                   onClick={handleClose}
-                  sx={{ ml: -6 }}
+                  sx={{
+                    ml: -6,
+                    backgroundColor: "#ffc163",
+                    "&:hover": { backgroundColor: "#ffb74a" },
+                  }}
                 >
                   Close
                 </Button>
