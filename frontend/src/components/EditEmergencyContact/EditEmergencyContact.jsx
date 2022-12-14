@@ -67,7 +67,7 @@ const EditEmergencyContact = (props) => {
               rowSpacing={2}
               sx={{ mt: 2 }}
             >
-              <Grid item xs={6}>
+              <Grid item xs={4}>
                 <TextField
                   name="first_name"
                   variant="outlined"
@@ -75,10 +75,10 @@ const EditEmergencyContact = (props) => {
                   label="First Name"
                   value={emergencyContact.first_name}
                   onChange={(e) => setFirstName(e.target.value)}
-                  sx={{ ml: 2 }}
+                  sx={{ ml: 2, width: "75%" }}
                 />
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={4}>
                 <TextField
                   name="last_name"
                   variant="outlined"
@@ -86,9 +86,10 @@ const EditEmergencyContact = (props) => {
                   label="Last Name"
                   value={emergencyContact.last_name}
                   onChange={(e) => setLastName(e.target.value)}
+                  sx={{ width: "75%" }}
                 />
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={4}>
                 <TextField
                   name="phone_number"
                   variant="outlined"
@@ -96,7 +97,7 @@ const EditEmergencyContact = (props) => {
                   label="Phone Number"
                   value={emergencyContact.phone_number}
                   onChange={(e) => setPhoneNumber(e.target.value)}
-                  sx={{ ml: 2 }}
+                  sx={{ width: "75%" }}
                 />
               </Grid>
               <Grid item xs={2}>
@@ -104,7 +105,7 @@ const EditEmergencyContact = (props) => {
                   Update
                 </Button>
               </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={2}>
                 <Button type="button" variant="contained" onClick={handleClose}>
                   Close
                 </Button>

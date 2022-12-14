@@ -74,7 +74,7 @@ const EditAddress = (props) => {
                   label="Street Address"
                   value={address.street_address}
                   onChange={(e) => setStreet(e.target.value)}
-                  sx={{ ml: 2 }}
+                  sx={{ ml: 2, width: "75%" }}
                 />
               </Grid>
               <Grid item xs={5}>
@@ -85,6 +85,7 @@ const EditAddress = (props) => {
                   label="City"
                   value={address.city}
                   onChange={(e) => setCity(e.target.value)}
+                  sx={{ width: "75%" }}
                 />
               </Grid>
               <Grid item xs={5}>
@@ -95,7 +96,7 @@ const EditAddress = (props) => {
                   label="State"
                   value={address.state}
                   onChange={(e) => setState(e.target.value)}
-                  sx={{ ml: 2 }}
+                  sx={{ ml: 2, width: "75%" }}
                 />
               </Grid>
               <Grid item xs={5}>
@@ -106,6 +107,7 @@ const EditAddress = (props) => {
                   label="Zip Code"
                   value={address.zip}
                   onChange={(e) => setZip(e.target.value)}
+                  sx={{ width: "75%" }}
                 />
               </Grid>
               <Grid item xs={4}>
