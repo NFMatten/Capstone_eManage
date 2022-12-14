@@ -28,8 +28,16 @@ const AddressForm = (props) => {
     });
   };
   return (
-    <Container>
-      <Paper elevation={4} sx={{ backgroundColor: "#fff0d8", my: 2 }}>
+    <Container sx={{ ml: "27%" }}>
+      <Paper
+        elevation={4}
+        sx={{
+          backgroundColor: "#fff0d8",
+          my: 2,
+          maxWidth: "450px",
+          minWidth: "450px",
+        }}
+      >
         <Typography align="center">
           <b>Add or Update your Address</b>
         </Typography>
