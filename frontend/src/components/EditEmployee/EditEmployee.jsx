@@ -75,7 +75,7 @@ const EditEmployee = (props) => {
               rowSpacing={2}
               sx={{ mt: 2 }}
             >
-              <Grid item xs={5}>
+              <Grid item xs={4}>
                 <TextField
                   name="first_name"
                   variant="outlined"
@@ -86,7 +86,7 @@ const EditEmployee = (props) => {
                   sx={{ ml: 2 }}
                 />
               </Grid>
-              <Grid item xs={5}>
+              <Grid item xs={4}>
                 <TextField
                   name="last_name"
                   variant="outlined"
@@ -96,7 +96,7 @@ const EditEmployee = (props) => {
                   onChange={(e) => setLastName(e.target.value)}
                 />
               </Grid>
-              <Grid item xs={5}>
+              <Grid item xs={4}>
                 <TextField
                   name="email"
                   variant="outlined"
@@ -104,10 +104,10 @@ const EditEmployee = (props) => {
                   label="Email"
                   value={employee.email}
                   onChange={(e) => setEmail(e.target.value)}
-                  sx={{ ml: 2 }}
+                  // sx={{ ml: 2 }}
                 />
               </Grid>
-              <Grid item xs={5}>
+              <Grid item xs={4}>
                 <TextField
                   name="phone_number"
                   variant="outlined"
@@ -115,9 +115,10 @@ const EditEmployee = (props) => {
                   label="Phone Number"
                   value={employee.phone_number}
                   onChange={(e) => setPhoneNumber(e.target.value)}
+                  sx={{ ml: 2 }}
                 />
               </Grid>
-              <Grid item xs={5}>
+              <Grid item xs={4}>
                 <TextField
                   name="Salary"
                   variant="outlined"
@@ -125,10 +126,10 @@ const EditEmployee = (props) => {
                   label="Salary"
                   value={employee.salary}
                   onChange={(e) => setSalary(e.target.value)}
-                  sx={{ ml: 2 }}
+                  // sx={{ ml: 2 }}
                 />
               </Grid>
-              <Grid item xs={5}>
+              <Grid item xs={4}>
                 <TextField
                   name="hire_date"
                   variant="outlined"
@@ -137,11 +138,11 @@ const EditEmployee = (props) => {
                   type="date"
                   value={employee.hire_date}
                   onChange={(e) => setHireDate(e.target.value)}
-                  sx={{ width: "72%" }}
+                  sx={{ width: "54%" }}
                 />
               </Grid>
 
-              <Grid item xs={6}>
+              <Grid item xs={4}>
                 <TextField
                   name="employee_role"
                   variant="outlined"
@@ -152,18 +153,13 @@ const EditEmployee = (props) => {
                   sx={{ ml: 2 }}
                 />
               </Grid>
-              <Grid item xs={2}>
-                <Button type="submit" variant="contained" sx={{ ml: -8 }}>
+              <Grid item xs={4}>
+                <Button type="submit" variant="contained">
                   Update
                 </Button>
               </Grid>
-              <Grid item xs={2}>
-                <Button
-                  type="button"
-                  variant="contained"
-                  onClick={handleClose}
-                  sx={{ ml: -6 }}
-                >
+              <Grid item xs={4}>
+                <Button type="button" variant="contained" onClick={handleClose}>
                   Close
                 </Button>
               </Grid>
@@ -176,3 +172,6 @@ const EditEmployee = (props) => {
 };
 
 export default EditEmployee;
+
+// update
+// close
