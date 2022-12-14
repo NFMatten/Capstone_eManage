@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
-// import { Paper, TextField, Button, Typography, Container } from "@mui/material";
+import {
+  Paper,
+  TextField,
+  Button,
+  Typography,
+  Container,
+  Grid,
+} from "@mui/material";
 import "./EditEmployee.css";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
@@ -52,57 +59,125 @@ const EditEmployee = (props) => {
   };
   return (
     <div className={showHideClassName}>
-      <section className="modal-main">
-        <form onSubmit={handleSubmit}>
-          <h1>Edit Employee</h1>
-          <label>First Name</label>
-          <input
-            name="first_name"
-            onChange={(e) => setFirstName(e.target.value)}
-            defaultValue={employee.first_name}
-          />
-          <label>Last Name</label>
-          <input
-            name="last_name"
-            onChange={(e) => setLastName(e.target.value)}
-            defaultValue={employee.last_name}
-          />
-          <label>Email</label>
-          <input
-            name="email"
-            onChange={(e) => setEmail(e.target.value)}
-            defaultValue={employee.email}
-          />
-          <label>Phone Number</label>
-          <input
-            name="phone_number"
-            onChange={(e) => setPhoneNumber(e.target.value)}
-            defaultValue={employee.phone_number}
-          />
-          <label>Salary</label>
-          <input
-            name="salary"
-            onChange={(e) => setSalary(e.target.value)}
-            defaultValue={employee.salary}
-          />
-          <label>Hire Date</label>
-          <input
-            name="hire_date"
-            onChange={(e) => setHireDate(e.target.value)}
-            defaultValue={employee.hire_date}
-          />
-          <label>Job Title</label>
-          <input
-            name="employee_role"
-            onChange={(e) => setEmployeeRole(e.target.value)}
-            defaultValue={employee.employee_role}
-          />
-          <button type="submit">Update Employee</button>
-        </form>
-        <button type="button" onClick={handleClose}>
-          Close
-        </button>
-      </section>
+      <Paper elevation={4}>
+        <section className="modal-main">
+          <Typography
+            variant="h5"
+            color="white"
+            sx={{
+              textAlign: "center",
+              py: "10px",
+              backgroundColor: "#ffc163",
+              boxShadow: 3,
+              mx: "-15px",
+              mt: "-15px",
+            }}
+          >
+            Edit Employee
+          </Typography>
+          <form onSubmit={handleSubmit}>
+            <Grid
+              container
+              justifyContent="center"
+              rowSpacing={2}
+              sx={{ mt: 2 }}
+            >
+              <Grid item xs={5}>
+                <TextField
+                  name="first_name"
+                  variant="outlined"
+                  size="small"
+                  label="First Name"
+                  value={employee.first_name}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  sx={{ ml: 2 }}
+                />
+              </Grid>
+              <Grid item xs={5}>
+                <TextField
+                  name="last_name"
+                  variant="outlined"
+                  size="small"
+                  label="Last Name"
+                  value={employee.last_name}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={5}>
+                <TextField
+                  name="email"
+                  variant="outlined"
+                  size="small"
+                  label="Email"
+                  value={employee.email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  sx={{ ml: 2 }}
+                />
+              </Grid>
+              <Grid item xs={5}>
+                <TextField
+                  name="phone_number"
+                  variant="outlined"
+                  size="small"
+                  label="Phone Number"
+                  value={employee.phone_number}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={5}>
+                <TextField
+                  name="Salary"
+                  variant="outlined"
+                  size="small"
+                  label="Salary"
+                  value={employee.salary}
+                  onChange={(e) => setSalary(e.target.value)}
+                  sx={{ ml: 2 }}
+                />
+              </Grid>
+              <Grid item xs={5}>
+                <TextField
+                  name="hire_date"
+                  variant="outlined"
+                  size="small"
+                  label="Hire Date"
+                  type="date"
+                  value={employee.hire_date}
+                  onChange={(e) => setHireDate(e.target.value)}
+                  sx={{ width: "72%" }}
+                />
+              </Grid>
+
+              <Grid item xs={6}>
+                <TextField
+                  name="employee_role"
+                  variant="outlined"
+                  size="small"
+                  label="Job Title"
+                  value={employee.employee_role}
+                  onChange={(e) => setEmployeeRole(e.target.value)}
+                  sx={{ ml: 2 }}
+                />
+              </Grid>
+              <Grid item xs={2}>
+                <Button type="submit" variant="contained" sx={{ ml: -8 }}>
+                  Update
+                </Button>
+              </Grid>
+              <Grid item xs={2}>
+                <Button
+                  type="button"
+                  variant="contained"
+                  onClick={handleClose}
+                  sx={{ ml: -6 }}
+                >
+                  Close
+                </Button>
+              </Grid>
+            </Grid>
+          </form>
+        </section>
+      </Paper>
     </div>
   );
 };
