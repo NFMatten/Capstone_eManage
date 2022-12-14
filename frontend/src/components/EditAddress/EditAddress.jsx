@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Paper, TextField, Button, Typography, Grid } from "@mui/material";
 import "../EditEmployee/EditEmployee.css";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
@@ -42,39 +43,90 @@ const EditAddress = (props) => {
 
   return (
     <div className={showHideClassName}>
-      <section className="modal-main">
-        <form onSubmit={handleSubmit}>
-          <h1>Edit Address</h1>
-          <label>Street Address</label>
-          <input
-            name="street_address"
-            onChange={(e) => setStreet(e.target.value)}
-            defaultValue={address.street_address}
-          />
-          <label>City</label>
-          <input
-            name="city"
-            onChange={(e) => setCity(e.target.value)}
-            defaultValue={address.city}
-          />
-          <label>State</label>
-          <input
-            name="state"
-            onChange={(e) => setState(e.target.value)}
-            defaultValue={address.state}
-          />
-          <label>Zip Code</label>
-          <input
-            name="zip"
-            onChange={(e) => setZip(e.target.value)}
-            defaultValue={address.zip}
-          />
-          <button type="submit">Update Address</button>
-        </form>
-        <button type="button" onClick={handleClose}>
-          Close
-        </button>
-      </section>
+      <Paper>
+        <section className="modal-main">
+          <Typography
+            variant="h5"
+            color="white"
+            sx={{
+              textAlign: "center",
+              py: "10px",
+              backgroundColor: "#ffc163",
+              boxShadow: 3,
+              mx: "-15px",
+              mt: "-15px",
+            }}
+          >
+            Edit Address
+          </Typography>
+          <form onSubmit={handleSubmit}>
+            <Grid
+              container
+              justifyContent="center"
+              rowSpacing={2}
+              sx={{ mt: 2 }}
+            >
+              <Grid item xs={5}>
+                <TextField
+                  name="street_address"
+                  variant="outlined"
+                  size="small"
+                  label="Street Address"
+                  value={address.street_address}
+                  onChange={(e) => setStreet(e.target.value)}
+                  sx={{ ml: 2 }}
+                />
+              </Grid>
+              <Grid item xs={5}>
+                <TextField
+                  name="city"
+                  variant="outlined"
+                  size="small"
+                  label="City"
+                  value={address.city}
+                  onChange={(e) => setCity(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={5}>
+                <TextField
+                  name="state"
+                  variant="outlined"
+                  size="small"
+                  label="State"
+                  value={address.state}
+                  onChange={(e) => setState(e.target.value)}
+                  sx={{ ml: 2 }}
+                />
+              </Grid>
+              <Grid item xs={5}>
+                <TextField
+                  name="zip"
+                  variant="outlined"
+                  size="small"
+                  label="Zip Code"
+                  value={address.zip}
+                  onChange={(e) => setZip(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <Button type="submit" variant="contained" sx={{ ml: -8 }}>
+                  Update
+                </Button>
+              </Grid>
+              <Grid item xs={2}>
+                <Button
+                  type="button"
+                  variant="contained"
+                  onClick={handleClose}
+                  sx={{ ml: -6 }}
+                >
+                  Close
+                </Button>
+              </Grid>
+            </Grid>
+          </form>
+        </section>
+      </Paper>
     </div>
   );
 };

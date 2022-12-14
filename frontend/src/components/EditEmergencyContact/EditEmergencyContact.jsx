@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Paper, TextField, Button, Typography, Grid } from "@mui/material";
 import "../EditEmployee/EditEmployee.css";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
@@ -43,33 +44,75 @@ const EditEmergencyContact = (props) => {
 
   return (
     <div className={showHideClassName}>
-      <section className="modal-main">
-        <form onSubmit={handleSubmit}>
-          <h1>Edit Emergency Contact</h1>
-          <label>First Name</label>
-          <input
-            name="first_name"
-            onChange={(e) => setFirstName(e.target.value)}
-            defaultValue={emergencyContact.first_name}
-          />
-          <label>Last Name</label>
-          <input
-            name="last_name"
-            onChange={(e) => setLastName(e.target.value)}
-            defaultValue={emergencyContact.last_name}
-          />
-          <label>Phone Number</label>
-          <input
-            name="phone_number"
-            onChange={(e) => setPhoneNumber(e.target.value)}
-            defaultValue={emergencyContact.phone_number}
-          />
-          <button type="submit">Update Contact</button>
-        </form>
-        <button type="button" onClick={handleClose}>
-          Close
-        </button>
-      </section>
+      <Paper>
+        <section className="modal-main">
+          <Typography
+            variant="h5"
+            color="white"
+            sx={{
+              textAlign: "center",
+              py: "10px",
+              backgroundColor: "#ffc163",
+              boxShadow: 3,
+              mx: "-15px",
+              mt: "-15px",
+            }}
+          >
+            Edit Emergency Contact
+          </Typography>
+          <form onSubmit={handleSubmit}>
+            <Grid
+              container
+              justifyContent="center"
+              rowSpacing={2}
+              sx={{ mt: 2 }}
+            >
+              <Grid item xs={6}>
+                <TextField
+                  name="first_name"
+                  variant="outlined"
+                  size="small"
+                  label="First Name"
+                  value={emergencyContact.first_name}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  sx={{ ml: 2 }}
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <TextField
+                  name="last_name"
+                  variant="outlined"
+                  size="small"
+                  label="Last Name"
+                  value={emergencyContact.last_name}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <TextField
+                  name="phone_number"
+                  variant="outlined"
+                  size="small"
+                  label="Phone Number"
+                  value={emergencyContact.phone_number}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  sx={{ ml: 2 }}
+                />
+              </Grid>
+              <Grid item xs={2}>
+                <Button type="submit" variant="contained">
+                  Update
+                </Button>
+              </Grid>
+              <Grid item xs={4}>
+                <Button type="button" variant="contained" onClick={handleClose}>
+                  Close
+                </Button>
+              </Grid>
+            </Grid>
+          </form>
+        </section>
+      </Paper>
     </div>
   );
 };
