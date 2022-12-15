@@ -73,7 +73,7 @@ const EditEmergencyContact = (props) => {
                   variant="outlined"
                   size="small"
                   label="First Name"
-                  value={emergencyContact.first_name}
+                  defaultValue={emergencyContact.first_name}
                   onChange={(e) => setFirstName(e.target.value)}
                   sx={{ ml: 2, width: "75%" }}
                 />
@@ -84,7 +84,7 @@ const EditEmergencyContact = (props) => {
                   variant="outlined"
                   size="small"
                   label="Last Name"
-                  value={emergencyContact.last_name}
+                  defaultValue={emergencyContact.last_name}
                   onChange={(e) => setLastName(e.target.value)}
                   sx={{ width: "75%" }}
                 />
@@ -95,7 +95,7 @@ const EditEmergencyContact = (props) => {
                   variant="outlined"
                   size="small"
                   label="Phone Number"
-                  value={emergencyContact.phone_number}
+                  defaultValue={emergencyContact.phone_number}
                   onChange={(e) => setPhoneNumber(e.target.value)}
                   sx={{ width: "75%" }}
                 />

@@ -81,7 +81,7 @@ const EditEmployee = (props) => {
                   variant="outlined"
                   size="small"
                   label="First Name"
-                  value={employee.first_name}
+                  defaultValue={employee.first_name}
                   onChange={(e) => setFirstName(e.target.value)}
                   sx={{ ml: 2 }}
                 />
@@ -92,7 +92,7 @@ const EditEmployee = (props) => {
                   variant="outlined"
                   size="small"
                   label="Last Name"
-                  value={employee.last_name}
+                  defaultValue={employee.last_name}
                   onChange={(e) => setLastName(e.target.value)}
                 />
               </Grid>
@@ -102,7 +102,7 @@ const EditEmployee = (props) => {
                   variant="outlined"
                   size="small"
                   label="Email"
-                  value={employee.email}
+                  defaultValue={employee.email}
                   onChange={(e) => setEmail(e.target.value)}
                   // sx={{ ml: 2 }}
                 />
@@ -113,7 +113,7 @@ const EditEmployee = (props) => {
                   variant="outlined"
                   size="small"
                   label="Phone Number"
-                  value={employee.phone_number}
+                  defaultValue={employee.phone_number}
                   onChange={(e) => setPhoneNumber(e.target.value)}
                   sx={{ ml: 2 }}
                 />
@@ -124,7 +124,7 @@ const EditEmployee = (props) => {
                   variant="outlined"
                   size="small"
                   label="Salary"
-                  value={employee.salary}
+                  defaultValue={employee.salary}
                   onChange={(e) => setSalary(e.target.value)}
                   // sx={{ ml: 2 }}
                 />
@@ -134,12 +134,15 @@ const EditEmployee = (props) => {
                   name="hire_date"
                   variant="outlined"
                   size="small"
-                  label="Hire Date"
                   type="date"
-                  value={employee.hire_date}
+                  defaultValue={employee.hire_date}
                   onChange={(e) => setHireDate(e.target.value)}
                   sx={{ width: "54%" }}
                 />
+                <Typography variant="caption">
+                  <br />
+                  Hire Date
+                </Typography>
               </Grid>
 
               <Grid item xs={4}>
@@ -148,7 +151,7 @@ const EditEmployee = (props) => {
                   variant="outlined"
                   size="small"
                   label="Job Title"
-                  value={employee.employee_role}
+                  defaultValue={employee.employee_role}
                   onChange={(e) => setEmployeeRole(e.target.value)}
                   sx={{ ml: 2 }}
                 />

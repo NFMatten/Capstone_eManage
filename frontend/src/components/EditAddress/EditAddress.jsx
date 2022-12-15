@@ -72,7 +72,7 @@ const EditAddress = (props) => {
                   variant="outlined"
                   size="small"
                   label="Street Address"
-                  value={address.street_address}
+                  defaultValue={address.street_address}
                   onChange={(e) => setStreet(e.target.value)}
                   sx={{ ml: 2, width: "75%" }}
                 />
@@ -83,7 +83,7 @@ const EditAddress = (props) => {
                   variant="outlined"
                   size="small"
                   label="City"
-                  value={address.city}
+                  defaultValue={address.city}
                   onChange={(e) => setCity(e.target.value)}
                   sx={{ width: "75%" }}
                 />
@@ -94,7 +94,7 @@ const EditAddress = (props) => {
                   variant="outlined"
                   size="small"
                   label="State"
-                  value={address.state}
+                  defaultValue={address.state}
                   onChange={(e) => setState(e.target.value)}
                   sx={{ ml: 2, width: "75%" }}
                 />
@@ -105,7 +105,7 @@ const EditAddress = (props) => {
                   variant="outlined"
                   size="small"
                   label="Zip Code"
-                  value={address.zip}
+                  defaultValue={address.zip}
                   onChange={(e) => setZip(e.target.value)}
                   sx={{ width: "75%" }}
                 />
