@@ -67,7 +67,15 @@ const LoginPage = () => {
               ) : null}
 
               <Button href="/register">Click to register</Button>
-              <Button variant="contained" type="submit">
+              <Button
+                variant="contained"
+                type="submit"
+                sx={{
+                  ml: -6,
+                  backgroundColor: "#ffc163",
+                  "&:hover": { backgroundColor: "#ffb74a" },
+                }}
+              >
                 Login!
               </Button>
             </Stack>

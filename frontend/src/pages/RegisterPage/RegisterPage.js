@@ -44,8 +44,20 @@ const RegisterPage = () => {
     <Container maxWidth="sm" sx={{ marginBottom: "2em" }}>
       <form className="form" onSubmit={handleSubmit}>
         <Paper elevation={3}>
+          <Typography
+            variant="h5"
+            color="white"
+            sx={{
+              textAlign: "center",
+              py: "10px",
+              marginBottom: 2,
+              backgroundColor: "#ffc163",
+              boxShadow: 3,
+            }}
+          >
+            Register with eManage
+          </Typography>
           <Stack spacing={2} sx={{ margin: "10px" }}>
-            <h2>Register with eManage</h2>
             <TextField
               variant="outlined"
               placeholder="Enter Username..."
@@ -144,7 +156,15 @@ const RegisterPage = () => {
               value={formData.hire_date}
               onChange={handleInputChange}
             />
-            <Button variant="contained" type="submit">
+            <Button
+              variant="contained"
+              type="submit"
+              sx={{
+                ml: -6,
+                backgroundColor: "#ffc163",
+                "&:hover": { backgroundColor: "#ffb74a" },
+              }}
+            >
               Register!
             </Button>
             <Button href="/login">Already Registered? Login</Button>
