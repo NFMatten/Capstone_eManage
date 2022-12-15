@@ -27,8 +27,8 @@ const Calendar = (props) => {
       });
       const newEvent = {
         employee_name: title,
-        start: selectInfo.startStr,
-        end: selectInfo.endStr,
+        start: selectInfo.startStr.slice(0, 19),
+        end: selectInfo.endStr.slice(0, 19),
       };
       addNewEvent(newEvent);
     }
