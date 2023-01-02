@@ -81,6 +81,12 @@ const Navbar = () => {
               eManage
             </Typography>
           </Link>
+          <img
+            src="logo.png"
+            alt="eManage logo"
+            title="eManage"
+            className="logo"
+          ></img>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             {user ? (
