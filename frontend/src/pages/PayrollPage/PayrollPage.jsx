@@ -9,10 +9,12 @@ const PayrollPage = (props) => {
   const [user, token] = useAuth();
   const [payroll, setPayroll] = useState([]);
   const [employees, setEmployees] = useState([]);
+  const [salary, setSalary] = useState();
 
   useEffect(() => {
     fetchPayroll();
     fetchEmployees();
+    fetchUserSalary();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -36,6 +38,20 @@ const PayrollPage = (props) => {
         }
       );
       setEmployees(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const fetchUserSalary = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8000/api/auth/employees/${user.id}/`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      setSalary(response.data[0].salary);
     } catch (error) {
       console.log(error);
     }
@@ -82,7 +98,7 @@ const PayrollPage = (props) => {
           />
         </div>
       ) : (
-        <EmployeePayroll />
+        <EmployeePayroll salary={salary} />
       )}
     </div>
   );
