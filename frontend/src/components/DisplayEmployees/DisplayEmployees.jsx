@@ -77,32 +77,32 @@ const DisplayEmployees = (props) => {
             <TableHead>
               <TableRow>
                 <TableCell>
-                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                  <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
                     Name
                   </Typography>
                 </TableCell>
                 <TableCell>
-                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                  <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
                     Email
                   </Typography>
                 </TableCell>
                 <TableCell>
-                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                  <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
                     Phone Number
                   </Typography>
                 </TableCell>
                 <TableCell>
-                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                  <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
                     Salary
                   </Typography>
                 </TableCell>
                 <TableCell>
-                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                  <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
                     Hire Date
                   </Typography>
                 </TableCell>
                 <TableCell>
-                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                  <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
                     Job Title
                   </Typography>
                 </TableCell>
@@ -116,15 +116,37 @@ const DisplayEmployees = (props) => {
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
                     <TableCell>
-                      {employee.first_name} {employee.last_name}
+                      <Typography variant="subtitle1">
+                        {employee.first_name} {employee.last_name}
+                      </Typography>
                     </TableCell>
                     {payroll === false ? (
                       <>
-                        <TableCell>{employee.email}</TableCell>
-                        <TableCell>{employee.phone_number}</TableCell>
-                        <TableCell>{employee.salary}</TableCell>
-                        <TableCell>{employee.hire_date}</TableCell>
-                        <TableCell>{employee.employee_role}</TableCell>
+                        <TableCell>
+                          <Typography variant="subtitle1">
+                            {employee.email}
+                          </Typography>
+                        </TableCell>
+                        <TableCell>
+                          <Typography variant="subtitle1">
+                            {employee.phone_number}
+                          </Typography>
+                        </TableCell>
+                        <TableCell>
+                          <Typography variant="subtitle1">
+                            {employee.salary}
+                          </Typography>
+                        </TableCell>
+                        <TableCell>
+                          <Typography variant="subtitle1">
+                            {employee.hire_date}
+                          </Typography>
+                        </TableCell>
+                        <TableCell>
+                          <Typography variant="subtitle1">
+                            {employee.employee_role}
+                          </Typography>
+                        </TableCell>
                         <TableCell padding="none">
                           <IconButton
                             variant="contained"
