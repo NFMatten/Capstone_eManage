@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import useAuth from "../../hooks/useAuth";
 import {
   Table,
   TableCell,
@@ -13,9 +14,10 @@ import {
 } from "@mui/material";
 
 const EmployeePayroll = (props) => {
-  const [salary, setSalary] = useState(0);
+  const { salary } = props;
   const [hours, setHours] = useState(0);
   const [tips, setTips] = useState(0);
+  const [user, token] = useAuth();
   let totalPay;
 
   function total(salary, hours, tips) {
@@ -55,7 +57,6 @@ const EmployeePayroll = (props) => {
                 </Typography>
 
                 <ul>
-                  <li>Enter your salary</li>
                   <li>Enter hours you worked</li>
                   <li>Enter your tips received</li>
                   <li>Total will be automatically calculated</li>
@@ -134,13 +135,7 @@ const EmployeePayroll = (props) => {
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell>
-                    <TextField
-                      id="salary"
-                      placeholder="Enter Your Salary..."
-                      label="Salary"
-                      value={salary}
-                      onChange={(e) => setSalary(e.target.value)}
-                    />
+                    <Typography>${salary}</Typography>
                   </TableCell>
                   <TableCell>
                     <TextField
