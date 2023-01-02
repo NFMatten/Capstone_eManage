@@ -19,10 +19,10 @@ const SearchBar = (props) => {
         </Typography>
         <Grid container sx={{ justifyContent: "center" }}>
           <Grid item xs={12} sx={{ pt: 1.5 }}>
-            <Typography variant="body2" textAlign="center">
+            <Typography variant="body1" textAlign="center">
               To filter all tables, please enter an Employee Name
             </Typography>
-            <Typography variant="body2" textAlign="center">
+            <Typography variant="body1" textAlign="center">
               Or, filter the Employees Table by Name, Email, Phone Number,
               Salary, Hire Date or Job Title
             </Typography>
