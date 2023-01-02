@@ -1,43 +1,14 @@
-.ul {
-  display: flex;
-  justify-content: space-between;
-  list-style-type: none;
-}
-
-.li {
-  font-size: 1.25rem;
-}
-
-.navBar {
-  background: #ffc163;
-  box-shadow: 4px 2px 5px gray;
-  color: white;
-  margin-bottom: 2rem;
-  padding-right: 10px;
-}
-
-.navBar button {
+.button {
   background: transparent;
   border: 2px solid white;
   color: white;
   padding: 0.4rem 0.5rem;
 }
 
-.navBar button:hover {
+.button:hover {
   background: white;
   color: steelblue;
   cursor: pointer;
-}
-
-.brand {
-  cursor: pointer;
-  font-size: 2rem;
-  padding-left: 10px;
-  padding-top: 30px;
-}
-
-.button-center {
-  padding-top: 37px;
 }
 
 .btn-space {
