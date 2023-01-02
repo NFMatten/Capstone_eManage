@@ -28,7 +28,7 @@ const AnnouncementSingle = (props) => {
             <AccountCircleIcon sx={{ marginRight: 1 }} />
             {announcement.user.username}
           </Typography>
-          <Typography variant="subtitle2" sx={{ marginLeft: "30px" }}>
+          <Typography variant="body1" sx={{ marginLeft: "30px" }}>
             {announcement.announcement}
           </Typography>
         </Container>
