@@ -71,17 +71,17 @@ const DisplayEmergencyContacts = (props) => {
             <TableHead>
               <TableRow>
                 <TableCell>
-                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                  <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
                     Employee
                   </Typography>
                 </TableCell>
                 <TableCell>
-                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                  <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
                     Contact Name
                   </Typography>
                 </TableCell>
                 <TableCell>
-                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                  <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
                     Contact Phone Number
                   </Typography>
                 </TableCell>
@@ -95,14 +95,24 @@ const DisplayEmergencyContacts = (props) => {
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
                     <TableCell>
-                      {emergencyContact.user.first_name +
-                        " " +
-                        emergencyContact.user.last_name}
+                      <Typography variant="subtitle1">
+                        {" "}
+                        {emergencyContact.user.first_name +
+                          " " +
+                          emergencyContact.user.last_name}
+                      </Typography>
                     </TableCell>
                     <TableCell>
-                      {emergencyContact.first_name} {emergencyContact.last_name}
+                      <Typography variant="subtitle1">
+                        {emergencyContact.first_name}{" "}
+                        {emergencyContact.last_name}
+                      </Typography>
                     </TableCell>
-                    <TableCell>{emergencyContact.phone_number}</TableCell>
+                    <TableCell>
+                      <Typography variant="subtitle1">
+                        {emergencyContact.phone_number}
+                      </Typography>
+                    </TableCell>
                     <TableCell padding="none">
                       <IconButton
                         variant="contained"

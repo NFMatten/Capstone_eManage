@@ -73,27 +73,27 @@ const DisplayEmployeeAddresses = (props) => {
             <TableHead>
               <TableRow>
                 <TableCell>
-                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                  <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
                     Employee
                   </Typography>
                 </TableCell>
                 <TableCell>
-                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                  <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
                     Street
                   </Typography>
                 </TableCell>
                 <TableCell>
-                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                  <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
                     City
                   </Typography>
                 </TableCell>
                 <TableCell>
-                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                  <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
                     State
                   </Typography>
                 </TableCell>
                 <TableCell>
-                  <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
+                  <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
                     Zip Code
                   </Typography>
                 </TableCell>
@@ -107,12 +107,28 @@ const DisplayEmployeeAddresses = (props) => {
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
                     <TableCell>
-                      {address.user.first_name} {address.user.last_name}
+                      <Typography variant="subtitle1">
+                        {address.user.first_name} {address.user.last_name}
+                      </Typography>
                     </TableCell>
-                    <TableCell>{address.street_address}</TableCell>
-                    <TableCell>{address.city}</TableCell>
-                    <TableCell>{address.state}</TableCell>
-                    <TableCell>{address.zip}</TableCell>
+                    <TableCell>
+                      <Typography variant="subtitle1">
+                        {address.street_address}
+                      </Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography variant="subtitle1">
+                        {address.city}
+                      </Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography variant="subtitle1">
+                        {address.state}
+                      </Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography variant="subtitle1">{address.zip}</Typography>
+                    </TableCell>
                     <TableCell padding="none">
                       <IconButton
                         variant="contained"
