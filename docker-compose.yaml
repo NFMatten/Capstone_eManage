@@ -1,0 +1,34 @@
+version: "3.1"
+services:
+  emanage-database:
+    build: ./database
+    image: nfmatten/emanage-database:1.3
+    ports:
+      - 3306:3306
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - db-data:/var/lib/mysql
+
+  emanage-backend:
+    build: ./backend
+    image: nfmatten/emanage-backend:1.3
+    ports:
+      - 8000:8000
+    depends_on:
+      - "emanage-database"
+    restart: always
+    command: >
+      sh -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+
+  emanage-frontend:
+    build: ./frontend
+    image: nfmatten/emanage-frontend:1.3
+    ports:
+      - 3000:3000
+      - 80:80
+    depends_on:
+      - "emanage-backend"
+volumes:
+  db-data:
