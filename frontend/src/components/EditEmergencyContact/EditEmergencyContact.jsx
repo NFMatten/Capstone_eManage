@@ -31,7 +31,7 @@ const EditEmergencyContact = (props) => {
     console.log("Updated Emergency Contact", updatedContact);
     await axios
       .put(
-        `http://localhost:8000/emergencyContact/${emergencyContact.id}/`,
+        `http://52.87.162.151:8000/emergencyContact/${emergencyContact.id}/`,
         updatedContact,
         {
           headers: { Authorization: `Bearer ${token}` },

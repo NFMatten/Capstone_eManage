@@ -25,7 +25,7 @@ const EmployeesPage = (props) => {
   const fetchUsers = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/auth/employees/",
+        "http://52.87.162.151:8000/api/auth/employees/",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -38,7 +38,7 @@ const EmployeesPage = (props) => {
 
   const fetchAddresses = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/address/", {
+      const response = await axios.get("http://52.87.162.151:8000/address/", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setAddresses(response.data);
@@ -50,7 +50,7 @@ const EmployeesPage = (props) => {
   const fetchEmergencyContacts = async () => {
     try {
       let response = await axios.get(
-        "http://localhost:8000/emergencyContact/",
+        "http://52.87.162.151:8000/emergencyContact/",
         {
           headers: { Authorization: `Bearer ${token}` },
         }

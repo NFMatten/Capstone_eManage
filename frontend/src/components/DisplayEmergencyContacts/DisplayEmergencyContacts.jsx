@@ -39,7 +39,7 @@ const DisplayEmergencyContacts = (props) => {
   const deleteEmergencyContact = async (eContactId) => {
     try {
       await axios.delete(
-        `http://localhost:8000/emergencyContact/${eContactId}`,
+        `http://52.87.162.151:8000/emergencyContact/${eContactId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

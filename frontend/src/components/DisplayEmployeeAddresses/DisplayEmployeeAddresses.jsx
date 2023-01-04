@@ -43,7 +43,7 @@ const DisplayEmployeeAddresses = (props) => {
 
   const deleteAddress = async (addressId) => {
     try {
-      await axios.delete(`http://localhost:8000/address/${addressId}/`, {
+      await axios.delete(`http://52.87.162.151:8000/address/${addressId}/`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchAddresses();

@@ -20,7 +20,7 @@ const PayrollPage = (props) => {
 
   const fetchPayroll = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/payroll/", {
+      const response = await axios.get("http://52.87.162.151:8000/payroll/", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setPayroll(response.data);
@@ -32,7 +32,7 @@ const PayrollPage = (props) => {
   const fetchEmployees = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/auth/employees/",
+        "http://52.87.162.151:8000/api/auth/employees/",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -46,7 +46,7 @@ const PayrollPage = (props) => {
   const fetchUserSalary = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8000/api/auth/employees/${user.id}/`,
+        `http://52.87.162.151:8000/api/auth/employees/${user.id}/`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

@@ -16,9 +16,12 @@ const HomeLoggedIn = (props) => {
 
   const getAnnouncements = async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:8000/announcements/", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await axios.get(
+        "http://52.87.162.151:8000/announcements/",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setAnnouncements(response.data);
     } catch (error) {
       console.log(error);
@@ -28,7 +31,7 @@ const HomeLoggedIn = (props) => {
   const addAnnouncement = async (announcementObj) => {
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/announcements/",
+        "http://52.87.162.151:8000/announcements/",
         announcementObj,
         {
           headers: { Authorization: `Bearer ${token}` },

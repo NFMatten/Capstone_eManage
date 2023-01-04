@@ -44,7 +44,7 @@ const DisplayEmployees = (props) => {
   const deleteUser = async (userId) => {
     try {
       await axios.delete(
-        `http://localhost:8000/api/auth/employees/${userId}/`,
+        `http://52.87.162.151:8000/api/auth/employees/${userId}/`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

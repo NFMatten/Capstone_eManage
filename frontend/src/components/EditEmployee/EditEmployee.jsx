@@ -40,7 +40,7 @@ const EditEmployee = (props) => {
     console.log("update user", updatedUser);
     await axios
       .put(
-        `http://localhost:8000/api/auth/employees/${employee.id}/`,
+        `http://52.87.162.151:8000/api/auth/employees/${employee.id}/`,
         updatedUser,
         {
           headers: { Authorization: `Bearer ${token}` },

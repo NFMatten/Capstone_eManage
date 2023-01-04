@@ -28,7 +28,7 @@ const PayrollTableRow = (props) => {
     };
     console.log("Entry Added!", newEntry);
     await axios
-      .post("http://localhost:8000/payroll/", newEntry, {
+      .post("http://52.87.162.151:8000/payroll/", newEntry, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(alert("Entry Added!"));

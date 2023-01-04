@@ -4,7 +4,9 @@ import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 
 const CalendarPage = (props) => {
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState([
+    { employee_name: "", start: "", end: "" },
+  ]);
   const [user, token] = useAuth();
 
   useEffect(() => {
@@ -13,7 +15,7 @@ const CalendarPage = (props) => {
 
   const getEvents = async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:8000/calendar/", {
+      const response = await axios.get("http://52.87.162.151:8000/calendar/", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setEvents(response.data);
@@ -25,7 +27,7 @@ const CalendarPage = (props) => {
   const addNewEvent = async (newEvent) => {
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/calendar/",
+        "http://52.87.162.151:8000/calendar/",
         newEvent,
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -40,7 +42,7 @@ const CalendarPage = (props) => {
   const deleteEvent = async (eventToDelete) => {
     try {
       const response = await axios.delete(
-        `http://127.0.0.1:8000/calendar/${eventToDelete}/`,
+        `http://52.87.162.151:8000/calendar/${eventToDelete}/`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

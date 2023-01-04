@@ -33,7 +33,7 @@ const EditAddress = (props) => {
     };
     console.log("Updated Address", updatedAddress);
     await axios
-      .put(`http://localhost:8000/address/${address.id}/`, updatedAddress, {
+      .put(`http://52.87.162.151:8000/address/${address.id}/`, updatedAddress, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(alert("Address Updated!"));
