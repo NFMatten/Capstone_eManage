@@ -23,9 +23,6 @@ const Features = (props) => {
           textAlign="center"
           sx={{
             fontWeight: 600,
-            textDecoration: "underline",
-            textDecorationColor: "orange",
-            textDecorationThickness: 2,
           }}
         >{`${description}`}</Typography>
         <br />
